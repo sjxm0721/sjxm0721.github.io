@@ -152,6 +152,82 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-每日一题 剑指Offer 06.从尾到头打印链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="每日一题-剑指Offer-06-从尾到头打印链表"><a href="#每日一题-剑指Offer-06-从尾到头打印链表" class="headerlink" title="每日一题 剑指Offer 06.从尾到头打印链表"></a>每日一题 剑指Offer 06.从尾到头打印链表</h2><p><img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202307281104513.png" alt="baiyu" style="zoom:50%;" />鸣濑白羽（summer pockets）</p>
+<p>key社变腾讯的了！！！！！啊啊啊啊啊啊啊啊</p>
+<hr>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>输入一个链表的头节点，从尾到头反过来返回每个节点的值（用数组返回）。</p>
+<p>示例 1：</p>
+<p>输入：head &#x3D; [1,3,2]<br>输出：[2,3,1]</p>
+<p>限制：</p>
+<p>0 &lt;&#x3D; 链表长度 &lt;&#x3D; 10000</p>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>简单的反转链表题，最后输出竟然还是用数组，也没有限定只能用哪种数据结构，所以这题注定只有简单难度</li>
+<li>考虑到从尾到头输出链表数据，首先考虑到使用栈，由于<strong>栈</strong>这种数据结构<strong>FILO</strong>的特性，只要把任意一串数据输入再输出自然就已经达到了反转的效果，之后我们再用一个数据接收栈输出的数据return即可AC</li>
+<li>由于使用了栈、数组，并多次进行了遍历，我的这种解法时间复杂度与空间复杂度都不够优秀</li>
+</ul>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] reversePrint(ListNode head) &#123;</span><br><span class="line">        Stack&lt;ListNode&gt; stack=<span class="keyword">new</span> <span class="title class_">Stack</span>&lt;ListNode&gt;();</span><br><span class="line">        ListNode tmp=head;</span><br><span class="line">        <span class="keyword">while</span>(tmp!=<span class="literal">null</span>)&#123;</span><br><span class="line">            stack.push(tmp);</span><br><span class="line">            tmp=tmp.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span>[] ans=<span class="keyword">new</span> <span class="title class_">int</span>[stack.size()];</span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(stack.size()!=<span class="number">0</span>)&#123;</span><br><span class="line">            ans[i]=stack.pop().val;</span><br><span class="line">            i++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<h3 id="更优解法"><a href="#更优解法" class="headerlink" title="更优解法"></a>更优解法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="comment">// 执行用时 : 0 ms, 在所有 Java 提交中击败了 100.00% 的用户</span></span><br><span class="line">    <span class="comment">// 内存消耗 : 39.8 MB, 在所有 Java 提交中击败了 100.00% 的用户</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span>[] reversePrint(ListNode head) &#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">node</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="type">int</span> <span class="variable">count</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (node != <span class="literal">null</span>) &#123;</span><br><span class="line">            ++count;</span><br><span class="line">            node = node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span>[] nums = <span class="keyword">new</span> <span class="title class_">int</span>[count];</span><br><span class="line">        node = head;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> count - <span class="number">1</span>; i &gt;= <span class="number">0</span>; --i) &#123;</span><br><span class="line">            nums[i] = node.val;</span><br><span class="line">            node = node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ol>
+<li>首先获取链表中元素的个数</li>
+<li>开辟相同个数大小的数组</li>
+<li>从尾到头对数组元素赋值</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/07/28/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer%2006.%E4%BB%8E%E5%B0%BE%E5%88%B0%E5%A4%B4%E6%89%93%E5%8D%B0%E9%93%BE%E8%A1%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-剑指offer 每日一题 05.替换空格" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
