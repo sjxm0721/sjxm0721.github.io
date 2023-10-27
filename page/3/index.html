@@ -152,6 +152,157 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-每日一题 剑指Offer28.对称的二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="每日一题-剑指Offer28-对称的二叉树"><a href="#每日一题-剑指Offer28-对称的二叉树" class="headerlink" title="每日一题 剑指Offer28.对称的二叉树"></a>每日一题 剑指Offer28.对称的二叉树</h2><p>2023&#x2F;8&#x2F;21</p>
+<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202308212010299.jpg" alt="lian" style="zoom:50%;" />
+
+<hr>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。</p>
+<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
+<p><code>  1   / \  2  2 / \ / \ 3  4 4  3</code><br>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1   / \  2  2   \  \   3   3</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,2,2,3,4,4,3]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,2,2,null,3,null,3]</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
+
+<p><strong>限制：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 &lt;= 节点个数 &lt;= 1000</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>先将树翻转，再判断翻转后的树和原来的树是否相等</li>
+<li>注意两树完全相等的判断</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://sjxm0721.github.io/2023/08/20/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer.27%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/">剑指Offer27.二叉树的镜像</a></p>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isSymmetric</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> isSame(root,traversalTree(root));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">traversalTree</span><span class="params">(TreeNode node)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(node==<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode tmp=<span class="keyword">new</span> <span class="title class_">TreeNode</span>(node.val);</span><br><span class="line">        tmp.left=traversalTree(node.right);</span><br><span class="line">        tmp.right=traversalTree(node.left);</span><br><span class="line">        <span class="keyword">return</span> tmp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isSame</span><span class="params">(TreeNode a,TreeNode b)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="literal">null</span>&amp;&amp;b==<span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="literal">null</span>||b==<span class="literal">null</span>||a.val!=b.val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> isSame(a.left,b.left)&amp;&amp;isSame(a.right,b.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>官方的递归代码：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isSymmetric</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> check(root, root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">check</span><span class="params">(TreeNode p, TreeNode q)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="literal">null</span> &amp;&amp; q == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="literal">null</span> || q == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p.val == q.val &amp;&amp; check(p.left, q.right) &amp;&amp; check(p.right, q.left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>我们可以实现这样一个递归函数，通过「同步移动」两个指针的方法来遍历这棵树，ppp 指针和 qqq 指针一开始都指向这棵树的根，随后 ppp 右移时，qqq 左移，ppp 左移时，qqq 右移。每次检查当前 ppp 和 qqq 节点的值是否相等，如果相等再判断左右子树是否对称。</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/08/21/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer28.%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-每日一题 剑指Offer.27 二叉树的镜像" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="每日一题-剑指Offer-27-二叉树的镜像"><a href="#每日一题-剑指Offer-27-二叉树的镜像" class="headerlink" title="每日一题 剑指Offer.27 二叉树的镜像"></a>每日一题 剑指Offer.27 二叉树的镜像</h2><p>2023&#x2F;8&#x2F;20<img src="/Users/sijixiamu/Pictures/tk.jpg" alt="tk"></p>
+<hr>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请完成一个函数，输入一个二叉树，该函数输出它的镜像。</p>
+<p>例如输入：</p>
+<p><code>   4   /  \  2   7 / \  / \ 1  3 6  9</code><br>镜像输出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4   /  \  7   2 / \  / \ 9  6 3  1</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [4,2,7,1,3,6,9]</span><br><span class="line">输出：[4,7,2,9,6,3,1]</span><br></pre></td></tr></table></figure>
+
+<p><strong>限制：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 &lt;= 节点个数 &lt;= 1000</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>有关树的题目就一定要先想到递归</li>
+</ul>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">mirrorTree</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode tmp1=root.left;</span><br><span class="line">        TreeNode tmp2=root.right;</span><br><span class="line">        root.left=mirrorTree(tmp2);</span><br><span class="line">        root.right=mirrorTree(tmp1);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/08/20/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer.27%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-每日一题 剑指Offer.26 树的子结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -747,155 +898,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/08/11/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer.18%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer 17.打印从1到最大的n位数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>输入数字 <code>n</code>，按顺序打印出从 1 到最大的 n 位十进制数。比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: n = 1</span><br><span class="line">输出: [1,2,3,4,5,6,7,8,9]</span><br></pre></td></tr></table></figure>
-
-<p>说明：</p>
-<ul>
-<li>用返回一个整数列表来代替打印</li>
-<li>n 为正整数</li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
-<li>不考虑大数，直接用POW函数计算最大数遍历加入数组即可。</li>
-<li>考虑大数使用递归。</li>
-</ol>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ol>
-<li>不考虑大数</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] printNumbers(<span class="type">int</span> n) &#123;</span><br><span class="line">        <span class="type">int</span> maxNum=(<span class="type">int</span>)Math.pow(<span class="number">10</span>,n)-<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[maxNum];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;maxNum;i++)&#123;</span><br><span class="line">            arr[i]=i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="2">
-<li>考虑大数(递归)</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="type">int</span>[] res;</span><br><span class="line">    <span class="type">int</span> <span class="variable">nine</span> <span class="operator">=</span> <span class="number">0</span>, count = <span class="number">0</span>, start, n;</span><br><span class="line">    <span class="type">char</span>[] num, loop = &#123;<span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;7&#x27;</span>, <span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;9&#x27;</span>&#125;;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] printNumbers(<span class="type">int</span> n) &#123;</span><br><span class="line">        <span class="built_in">this</span>.n = n;</span><br><span class="line">        res = <span class="keyword">new</span> <span class="title class_">int</span>[(<span class="type">int</span>)Math.pow(<span class="number">10</span>, n) - <span class="number">1</span>];</span><br><span class="line">        num = <span class="keyword">new</span> <span class="title class_">char</span>[n];</span><br><span class="line">        start = n - <span class="number">1</span>;</span><br><span class="line">        dfs(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">dfs</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(x == n) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> String.valueOf(num).substring(start);</span><br><span class="line">            <span class="keyword">if</span>(!s.equals(<span class="string">&quot;0&quot;</span>)) res[count++] = Integer.parseInt(s);</span><br><span class="line">            <span class="keyword">if</span>(n - start == nine) start--;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> i : loop) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="string">&#x27;9&#x27;</span>) nine++;</span><br><span class="line">            num[x] = i;</span><br><span class="line">            dfs(x + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        nine--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/10/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer%2017.%E6%89%93%E5%8D%B0%E4%BB%8E1%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84n%E4%BD%8D%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer.16 数值的整数次方" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer-16-数值的整数次方"><a href="#每日一题-剑指Offer-16-数值的整数次方" class="headerlink" title="每日一题 剑指Offer.16 数值的整数次方"></a>每日一题 剑指Offer.16 数值的整数次方</h2><p>圣圆未花（BA）<img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308092031208.jpg" alt="mika" style="zoom:50%;" /></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>实现 <a target="_blank" rel="noopener" href="https://www.cplusplus.com/reference/valarray/pow/">pow(<em>x</em>, <em>n</em>)</a> ，即计算 x 的 n 次幂函数（即，xn）。不得使用库函数，同时不需要考虑大数问题。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：x = 2.00000, n = 10</span><br><span class="line">输出：1024.00000</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：x = 2.10000, n = 3</span><br><span class="line">输出：9.26100</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：x = 2.00000, n = -2</span><br><span class="line">输出：0.25000</span><br><span class="line">解释：2-2 = 1/22 = 1/4 = 0.25</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>-100.0 &lt; x &lt; 100.0</code></li>
-<li><code>-231 &lt;= n &lt;= 231-1</code></li>
-<li><code>n</code> 是一个整数</li>
-<li>要么 <code>x</code> 不为零，要么 <code>n &gt; 0</code> 。</li>
-<li><code>-104 &lt;= xn &lt;= 104</code></li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>求数值的整数次方，且不涉及大数运算，直接套用快速幂算法就能AC</li>
-<li>注意n的范围，INT_MIN到INT_MAX，此处若是用到了-n，有可能会爆int所以采用了Long存变量n。</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">myPow</span><span class="params">(<span class="type">double</span> x, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">N</span> <span class="operator">=</span> (<span class="type">long</span>) n;</span><br><span class="line">        <span class="keyword">if</span>(N&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> QM(x,n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">1.0</span>/QM(x,-n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">QM</span><span class="params">(<span class="type">double</span> x,<span class="type">long</span> n)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">double</span> <span class="variable">y</span> <span class="operator">=</span> QM(x,n/<span class="number">2</span>);</span><br><span class="line">            <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> y*y;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> y*y*x;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/09/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer.16%20%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9/">展开全文 >></a>
         </p>
       
 

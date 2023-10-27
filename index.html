@@ -152,6 +152,154 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-LCR 160.数据流中的中位数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="LCR-160-数据流中的中位数"><a href="#LCR-160-数据流中的中位数" class="headerlink" title="LCR 160.数据流中的中位数"></a>LCR 160.数据流中的中位数</h2><img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202310272020062.jpg" alt="tkk" style="zoom:33%;" />
+
+
+
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><hr>
+<p><strong>中位数</strong> 是有序整数列表中的中间值。如果列表的大小是偶数，则没有中间值，中位数是两个中间值的平均值。</p>
+<p>例如，</p>
+<p><code>[2,3,4]</code> 的中位数是 <code>3</code><br><code>[2,3]</code> 的中位数是 <code>(2 + 3) / 2 = 2.5</code><br>设计一个支持以下两种操作的数据结构：</p>
+<ul>
+<li><code>void addNum(int num)</code> - 从数据流中添加一个整数到数据结构中。</li>
+<li><code>double findMedian()</code> - 返回目前所有元素的中位数。</li>
+</ul>
+<p>**示例 1： **</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">[&quot;MedianFinder&quot;,&quot;addNum&quot;,&quot;addNum&quot;,&quot;findMedian&quot;,&quot;addNum&quot;,&quot;findMedian&quot;]</span><br><span class="line">[[],[1],[2],[],[3],[]]</span><br><span class="line">输出：[null,null,null,1.50000,null,2.00000]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong> </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">[&quot;MedianFinder&quot;,&quot;addNum&quot;,&quot;findMedian&quot;,&quot;addNum&quot;,&quot;findMedian&quot;]</span><br><span class="line">[[],[2],[],[3],[]]</span><br><span class="line">输出：[null,null,2.00000,null,2.50000]</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong> </p>
+<ul>
+<li>最多会对 <code>addNum、findMedian</code> 进行 <code>50000</code> 次调用。</li>
+</ul>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>求一个随时变化的数组的中位数，可以使用两个优先队列，一个为大顶堆，另一个为小顶堆。两边各存放数组中一般的元素，我们通过判断将元素放入大顶堆与小顶堆中，大顶堆存放较小的一半元素，小顶堆存放较大的一半元素，它们内部帮我们对元素进行排序，之后通过两个堆堆顶的元素我们就可以得到中位数。</li>
+<li>注意需要根据奇偶分类进行讨论。</li>
+</ul>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MedianFinder</span> &#123;</span><br><span class="line"></span><br><span class="line">    PriorityQueue&lt;Integer&gt; queueSmall,queueBig;</span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MedianFinder</span><span class="params">()</span> &#123;</span><br><span class="line">        queueSmall = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;Integer&gt;();<span class="comment">//小顶堆</span></span><br><span class="line">        queueBig = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;Integer&gt;(<span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Integer&gt;()&#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Integer num1,Integer num2)</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> num2-num1;<span class="comment">//大顶堆</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addNum</span><span class="params">(<span class="type">int</span> num)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(queueSmall.size()!=queueBig.size())&#123;</span><br><span class="line">            queueSmall.add(num);</span><br><span class="line">            queueBig.add(queueSmall.poll());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            queueBig.add(num);</span><br><span class="line">            queueSmall.add(queueBig.poll());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">findMedian</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> queueSmall.size() == queueBig.size() ? (queueBig.peek()+queueSmall.peek())/<span class="number">2.0</span>:queueSmall.peek();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/10/27/LCR%20160.%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-高频率点赞业务开发" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="高频率点赞业务开发"><a href="#高频率点赞业务开发" class="headerlink" title="高频率点赞业务开发"></a>高频率点赞业务开发</h2><h4 id="相关数据库表"><a href="#相关数据库表" class="headerlink" title="相关数据库表"></a>相关数据库表</h4><ol>
+<li><p>用户表 account  like_num字段</p>
+</li>
+<li><p>弹幕表 barrage like_num字段</p>
+</li>
+<li><p>评论表 comment like_num字段</p>
+</li>
+<li><p>动态表 dynamic like_num字段</p>
+</li>
+<li><p>视频表 video like_num字段</p>
+</li>
+<li><p>点赞表 。。。。。。</p>
+</li>
+</ol>
+<p>使用redis作为缓存来减少高频访问数据库造成的服务端压力。</p>
+<h3 id="总体思路"><a href="#总体思路" class="headerlink" title="总体思路"></a>总体思路</h3><ul>
+<li>前端针对高频操作进行防抖节流处理</li>
+<li>将用户高频操作造成数据的更改在redis进行处理，而采用定时将redis中相关数据写入对应数据库表来保证数据库数据可以得到及时更新。</li>
+</ul>
+<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><ul>
+<li>用户获取相关信息时，先查看redis中是否存在，若存在，直接返回，不存在，访问数据库，存入redis，返回</li>
+<li>对数据库相关的操作均在redis端实现</li>
+<li>定时同步redis与数据库数据</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/10/26/%E9%AB%98%E9%A2%91%E7%8E%87%E7%82%B9%E8%B5%9E%E4%B8%9A%E5%8A%A1%E5%BC%80%E5%8F%91/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-LCR 159.库存管理" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1194,182 +1342,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/09/11/vue3%E9%87%8D%E7%82%B9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer36.二叉搜索树与双向链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer36-二叉搜索树与双向链表"><a href="#每日一题-剑指Offer36-二叉搜索树与双向链表" class="headerlink" title="每日一题 剑指Offer36.二叉搜索树与双向链表"></a>每日一题 剑指Offer36.二叉搜索树与双向链表</h2><p>2023&#x2F;9&#x2F;1<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202309011826290.jpg" alt="ue" style="zoom:33%;" /></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的循环双向链表。要求不能创建任何新的节点，只能调整树中节点指针的指向。</p>
-<p>为了让您更好地理解问题，以下面的二叉搜索树为例：</p>
-<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202309011826484.png" alt="img" style="zoom:50%;" />
-
- 
-
-<p>我们希望将这个二叉搜索树转化为双向循环链表。链表中的每个节点都有一个前驱和后继指针。对于双向循环链表，第一个节点的前驱是最后一个节点，最后一个节点的后继是第一个节点。</p>
-<p>下图展示了上面的二叉搜索树转化成的链表。“head” 表示指向链表中有最小元素的节点。</p>
-<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202309011826686.png" alt="img" style="zoom:50%;" />
-
- 
-
-<p>特别地，我们希望可以就地完成转换操作。当转化完成以后，树中节点的左指针需要指向前驱，树中节点的右指针需要指向后继。还需要返回链表中的第一个节点的指针。</p>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>针对一个普通单向链表变成双向，我们通过顺序遍历，然后让pre.right&#x3D;node,node.left&#x3D;pre来完成。</li>
-<li>针对二叉搜索树，我们也可以通过“遍历”，来完成双向链表的构建，这个遍历也就是二叉搜索树的<em><strong>中序遍历</strong></em></li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    Node pre,head;</span><br><span class="line">    <span class="keyword">public</span> Node <span class="title function_">treeToDoublyList</span><span class="params">(Node root)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        dfs(root);</span><br><span class="line">        head.left=pre;</span><br><span class="line">        pre.right=head;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">dfs</span><span class="params">(Node node)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(node==<span class="literal">null</span>) <span class="keyword">return</span>;</span><br><span class="line">        dfs(node.left);</span><br><span class="line">        <span class="keyword">if</span>(pre==<span class="literal">null</span>) head=node;</span><br><span class="line">        <span class="keyword">else</span> pre.right=node;</span><br><span class="line">        node.left=pre;</span><br><span class="line">        pre=node;</span><br><span class="line">        dfs(node.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/09/01/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer36.%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%E4%B8%8E%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指Offer35.复杂链表的复制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="剑指Offer35-复杂链表的复制"><a href="#剑指Offer35-复杂链表的复制" class="headerlink" title="剑指Offer35.复杂链表的复制"></a>剑指Offer35.复杂链表的复制</h2><p>2023&#x2F;8&#x2F;31</p>
-<img src="/Users/sijixiamu/Pictures/m.jpg" alt="m" style="zoom:25%;" />
-
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请实现 <code>copyRandomList</code> 函数，复制一个复杂链表。在复杂链表中，每个节点除了有一个 <code>next</code> 指针指向下一个节点，还有一个 <code>random</code> 指针指向链表中的任意节点或者 <code>null</code>。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202308312035432.png" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [[7,null],[13,0],[11,4],[10,2],[1,0]]</span><br><span class="line">输出：[[7,null],[13,0],[11,4],[10,2],[1,0]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<p><img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202308312035457.png" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [[1,1],[2,1]]</span><br><span class="line">输出：[[1,1],[2,1]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<p><strong><img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202308312035509.png" alt="img"></strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [[3,null],[3,0],[3,null]]</span><br><span class="line">输出：[[3,null],[3,0],[3,null]]</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 4：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：head = []</span><br><span class="line">输出：[]</span><br><span class="line">解释：给定的链表为空（空指针），因此返回 null。</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>-10000 &lt;= Node.val &lt;= 10000</code></li>
-<li><code>Node.random</code> 为空（null）或指向链表中的节点。</li>
-<li>节点数目不超过 1000 。</li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>要求对链表进行<strong>深拷贝</strong>，直接return不行。</li>
-<li>运用<strong>回溯和哈希表</strong>。</li>
-</ul>
-<blockquote>
-<p>为什么使用<strong>回溯</strong>？</p>
-<blockquote>
-<p>因为我们为节点的random赋值时，无法保证其已经存在了，但是使用回溯法，若是节点不存在就会进入回溯，直到节点存在为止</p>
-</blockquote>
-<p>为什么使用哈希表？</p>
-<blockquote>
-<p>哈希表映射原来节点与拷贝后的节点，可以方便判断节点是否已存在…</p>
-</blockquote>
-</blockquote>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ol>
-<li>回溯+哈希表</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    Map&lt;Node,Node&gt; map= <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Node,Node&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Node <span class="title function_">copyRandomList</span><span class="params">(Node head)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="keyword">if</span>(!map.containsKey(head))&#123;</span><br><span class="line">            <span class="type">Node</span> <span class="variable">tmp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Node</span>(head.val);</span><br><span class="line">            map.put(head,tmp);</span><br><span class="line">            tmp.next=copyRandomList(head.next);</span><br><span class="line">            tmp.random=copyRandomList(head.random);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> map.get(head);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>2.迭代+节点拆分           O(1)空间复杂度</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> Node <span class="title function_">copyRandomList</span><span class="params">(Node head)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (head == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">Node</span> <span class="variable">node</span> <span class="operator">=</span> head; node != <span class="literal">null</span>; node = node.next.next) &#123;</span><br><span class="line">            <span class="type">Node</span> <span class="variable">nodeNew</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Node</span>(node.val);</span><br><span class="line">            nodeNew.next = node.next;</span><br><span class="line">            node.next = nodeNew;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">Node</span> <span class="variable">node</span> <span class="operator">=</span> head; node != <span class="literal">null</span>; node = node.next.next) &#123;</span><br><span class="line">            <span class="type">Node</span> <span class="variable">nodeNew</span> <span class="operator">=</span> node.next;</span><br><span class="line">            nodeNew.random = (node.random != <span class="literal">null</span>) ? node.random.next : <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">Node</span> <span class="variable">headNew</span> <span class="operator">=</span> head.next;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">Node</span> <span class="variable">node</span> <span class="operator">=</span> head; node != <span class="literal">null</span>; node = node.next) &#123;</span><br><span class="line">            <span class="type">Node</span> <span class="variable">nodeNew</span> <span class="operator">=</span> node.next;</span><br><span class="line">            node.next = node.next.next;</span><br><span class="line">            nodeNew.next = (nodeNew.next != <span class="literal">null</span>) ? nodeNew.next.next : <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> headNew;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>官方解释</p>
-<p>注意到方法一需要使用哈希表记录每一个节点对应新节点的创建情况，而我们可以使用一个小技巧来省去哈希表的空间。</p>
-<p>我们首先将该链表中每一个节点拆分为两个相连的节点，例如对于链表</p>
-<p>A→B→C，我们可以将其拆分为 A→A′→B→B′→C→C′。对于任意一个原节点 S，其拷贝节点 S′ 即为其后继节点。这样，我们可以直接找到每一个拷贝节点 S′的随机指针应当指向的节点，即为其原节点 SSS 的随机指针指向的节点 T 的后继节点 T′。需要注意原节点的随机指针可能为空，我们需要特别判断这种情况。</p>
-<p>当我们完成了拷贝节点的随机指针的赋值，我们只需要将这个链表按照原节点与拷贝节点的种类进行拆分即可，只需要遍历一次。同样需要注意最后一个拷贝节点的后继节点为空，我们需要特别判断这种情况。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/31/%E5%89%91%E6%8C%87Offer35.%E5%A4%8D%E6%9D%82%E9%93%BE%E8%A1%A8%E7%9A%84%E5%A4%8D%E5%88%B6/">展开全文 >></a>
         </p>
       
 
