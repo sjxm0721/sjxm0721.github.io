@@ -152,6 +152,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-每日一题 剑指Offer29.顺时针打印矩阵" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="每日一题-剑指Offer29-顺时针打印矩阵"><a href="#每日一题-剑指Offer29-顺时针打印矩阵" class="headerlink" title="每日一题 剑指Offer29.顺时针打印矩阵"></a>每日一题 剑指Offer29.顺时针打印矩阵</h2><p>2023&#x2F;8&#x2F;22<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202308222021839.jpg" alt="tk" style="zoom:50%;" /></p>
+<hr>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]</span><br><span class="line">输出：[1,2,3,6,9,8,7,4,5]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]</span><br><span class="line">输出：[1,2,3,4,8,12,11,10,9,5,6,7]</span><br></pre></td></tr></table></figure>
+
+<p><strong>限制：</strong></p>
+<ul>
+<li><code>0 &lt;= matrix.length &lt;= 100</code></li>
+<li><code>0 &lt;= matrix[i].length &lt;= 100</code></li>
+</ul>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>对顺时针打印数组进行模拟，由于数组需要改变的所有方向构成的数组为一个<em><strong>循环数组</strong></em>，所以我们只需要在数组到头或者遇到已经遍历过的元素的时候改变方向继续遍历即可。</li>
+</ul>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] spiralOrder(<span class="type">int</span>[][] matrix) &#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix==<span class="literal">null</span>||matrix.length==<span class="number">0</span>||matrix[<span class="number">0</span>].length==<span class="number">0</span>)<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="type">int</span>[][] pos=&#123;&#123;<span class="number">0</span>,<span class="number">1</span>&#125;,&#123;<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,-<span class="number">1</span>&#125;,&#123;-<span class="number">1</span>,<span class="number">0</span>&#125;&#125;;<span class="comment">//顺时针四个方向对应坐标的变化</span></span><br><span class="line">        <span class="type">int</span> dirIndex=<span class="number">0</span>;<span class="comment">//记录此时的方向</span></span><br><span class="line">        <span class="type">int</span> lenX=matrix.length;</span><br><span class="line">        <span class="type">int</span> lenY=matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="type">boolean</span>[][] visited=<span class="keyword">new</span> <span class="title class_">boolean</span>[lenX][lenY];</span><br><span class="line">        <span class="type">int</span>[] ans=<span class="keyword">new</span> <span class="title class_">int</span>[lenX*lenY];</span><br><span class="line">        <span class="type">int</span> nowX=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> nowY=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;lenX*lenY;i++)&#123;</span><br><span class="line">            ans[i]=matrix[nowX][nowY];</span><br><span class="line">            visited[nowX][nowY]=<span class="literal">true</span>;</span><br><span class="line">            <span class="type">int</span> newX=nowX+pos[dirIndex][<span class="number">0</span>];</span><br><span class="line">            <span class="type">int</span> newY=nowY+pos[dirIndex][<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(newX&lt;<span class="number">0</span>||newX&gt;=lenX||newY&lt;<span class="number">0</span>||newY&gt;=lenY||visited[newX][newY]==<span class="literal">true</span>)&#123;</span><br><span class="line">                dirIndex=(dirIndex+<span class="number">1</span>)%<span class="number">4</span>;<span class="comment">//换成下一个方向</span></span><br><span class="line">            &#125;</span><br><span class="line">            nowX+=pos[dirIndex][<span class="number">0</span>];</span><br><span class="line">            nowY+=pos[dirIndex][<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/08/22/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer29.%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-每日一题 剑指Offer28.对称的二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -830,74 +898,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/08/12/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer%2019.%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer.18 删除链表的节点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer-18-删除链表的节点"><a href="#每日一题-剑指Offer-18-删除链表的节点" class="headerlink" title="每日一题 剑指Offer.18 删除链表的节点"></a>每日一题 剑指Offer.18 删除链表的节点</h2><p>BA的小春<img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308112109717.jpg" alt="halu" style="zoom:25%;" /></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。</p>
-<p>返回删除后的链表的头节点。</p>
-<p><strong>注意：</strong>此题对比原题有改动</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: head = [4,5,1,9], val = 5</span><br><span class="line">输出: [4,1,9]</span><br><span class="line">解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 1 -&gt; 9.</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: head = [4,5,1,9], val = 1</span><br><span class="line">输出: [4,5,9]</span><br><span class="line">解释: 给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 5 -&gt; 9.</span><br></pre></td></tr></table></figure>
-
-<p><strong>说明：</strong></p>
-<ul>
-<li>题目保证链表中节点的值互不相同</li>
-<li>若使用 C 或 C++ 语言，你不需要 <code>free</code> 或 <code>delete</code> 被删除的节点</li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>删除链表节点一般避免不了对链表从头到尾的遍历，此时需要注意<strong>头部</strong>与<strong>尾部</strong>两个位置，在while循环的时候也要注意<strong>循环的条件</strong>不要出现报错，同时需要保证<strong>对链表每一个节点都需要遍历到</strong>。</p>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">deleteNode</span><span class="params">(ListNode head, <span class="type">int</span> val)</span> &#123;</span><br><span class="line">        ListNode node=head;</span><br><span class="line">        <span class="keyword">if</span>(node.val==val) <span class="keyword">return</span> head.next;</span><br><span class="line">        <span class="keyword">while</span>(node!=<span class="literal">null</span> &amp;&amp; node.next!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(node.next.val==val)&#123;</span><br><span class="line">                ListNode tmp=node.next;</span><br><span class="line">                node.next=tmp.next;</span><br><span class="line">            &#125;</span><br><span class="line">            node=node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/11/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer.18%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9/">展开全文 >></a>
         </p>
       
 
