@@ -8,11 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="面试经典150题题目给你一个非负整数数组 nums ，你最初位于数组的 第一个下标 。数组中的每个元素代表你在该位置可以跳跃的最大长度。 判断你是否能够到达最后一个下标，如果可以，返回 true ；否则，返回 false 。 示例 1： 123输入：nums &#x3D; [2,3,1,1,4]输出：true解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/4/index.html">
+<meta property="og:url" content="http://example.com/2023/12/15/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="面试经典150题题目给你一个非负整数数组 nums ，你最初位于数组的 第一个下标 。数组中的每个元素代表你在该位置可以跳跃的最大长度。 判断你是否能够到达最后一个下标，如果可以，返回 true ；否则，返回 false 。 示例 1： 123输入：nums &#x3D; [2,3,1,1,4]输出：true解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-12-15T03:51:48.849Z">
+<meta property="article:modified_time" content="2023-12-15T03:51:48.850Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,81 +154,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-每日一题 剑指Offer20.表示数值的字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-面试经典150题" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请实现一个函数用来判断字符串是否表示<strong>数值</strong>（包括整数和小数）。</p>
-<p><strong>数值</strong>（按顺序）可以分成以下几个部分：</p>
-<ol>
-<li>若干空格</li>
-<li>一个 <strong>小数</strong> 或者 <strong>整数</strong></li>
-<li>（可选）一个 <code>&#39;e&#39;</code> 或 <code>&#39;E&#39;</code> ，后面跟着一个 <strong>整数</strong></li>
-<li>若干空格</li>
-</ol>
-<p><strong>小数</strong>（按顺序）可以分成以下几个部分：</p>
-<ol>
-<li>（可选）一个符号字符（<code>&#39;+&#39;</code> 或 <code>&#39;-&#39;</code>）</li>
-<li>下述格式之一：<ol>
-<li>至少一位数字，后面跟着一个点 <code>&#39;.&#39;</code></li>
-<li>至少一位数字，后面跟着一个点 <code>&#39;.&#39;</code> ，后面再跟着至少一位数字</li>
-<li>一个点 <code>&#39;.&#39;</code> ，后面跟着至少一位数字</li>
-</ol>
-</li>
-</ol>
-<p><strong>整数</strong>（按顺序）可以分成以下几个部分：</p>
-<ol>
-<li>（可选）一个符号字符（<code>&#39;+&#39;</code> 或 <code>&#39;-&#39;</code>）</li>
-<li>至少一位数字</li>
-</ol>
-<p>部分<strong>数值</strong>列举如下：</p>
-<ul>
-<li><code>[&quot;+100&quot;, &quot;5e2&quot;, &quot;-123&quot;, &quot;3.1416&quot;, &quot;-1E-16&quot;, &quot;0123&quot;]</code></li>
-</ul>
-<p>部分<strong>非数值</strong>列举如下：</p>
-<ul>
-<li><code>[&quot;12e&quot;, &quot;1a3.14&quot;, &quot;1.2.3&quot;, &quot;+-5&quot;, &quot;12e+5.4&quot;]</code></li>
-</ul>
+        <h2 id="面试经典150题"><a href="#面试经典150题" class="headerlink" title="面试经典150题"></a>面试经典150题</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个非负整数数组 <code>nums</code> ，你最初位于数组的 <strong>第一个下标</strong> 。数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
+<p>判断你是否能够到达最后一个下标，如果可以，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 <p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;0&quot;</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [2,3,1,1,4]</span><br><span class="line">输出：true</span><br><span class="line">解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。</span><br></pre></td></tr></table></figure>
 
 <p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;e&quot;</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;.&quot;</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 4：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;    .1  &quot;</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [3,2,1,0,4]</span><br><span class="line">输出：false</span><br><span class="line">解释：无论怎样，总会到达下标为 3 的位置。但该下标的最大跳跃长度是 0 ， 所以永远不可能到达最后一个下标。</span><br></pre></td></tr></table></figure>
 
 <p><strong>提示：</strong></p>
 <ul>
-<li><code>1 &lt;= s.length &lt;= 20</code></li>
-<li><code>s</code> 仅含英文字母（大写和小写），数字（<code>0-9</code>），加号 <code>&#39;+&#39;</code> ，减号 <code>&#39;-&#39;</code> ，空格 <code>&#39; &#39;</code> 或者点 <code>&#39;.&#39;</code> 。</li>
+<li><code>1 &lt;= nums.length &lt;= 104</code></li>
+<li><code>0 &lt;= nums[i] &lt;= 105</code></li>
 </ul>
 <hr>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>这道题没有特别的技巧，就是需要整理所有正确的情况，每种情况都进行判断，多错几次自己汇总一下就可以AC。</li>
-<li>所有正确的前提：</li>
-</ul>
-<ol>
-<li><em><strong>若是有‘.’号出现，只能出现一次。</strong></em></li>
-<li><em><strong>由于E、e后必须跟整数，所以如果出现‘.’号，一定要在E、e之前。</strong></em></li>
-<li><em><strong>E、e后面一定要有数字。</strong></em></li>
-<li><em><strong>若出现’+‘、’-‘号，一定出现在’开头‘或E、e后一位。</strong></em></li>
-</ol>
-<ul>
-<li>别忘记在处理字符串前，先去掉首尾空格。</li>
+<li>使用贪心算法，用一个变量维护当前可以到达的最远距离，然后顺序遍历一个数组，若当前点在最远距离之内，则此点可以到达，并再用这个点去更新当前可以到达的最远距离。</li>
+<li>若最终最远距离&gt;&#x3D;终点则跳跃游戏可以到达，返回true；否则返回false。</li>
 </ul>
 <hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isNumber</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">boolean</span> number=<span class="literal">false</span>;<span class="comment">//标志是否出现数字</span></span><br><span class="line">        <span class="type">boolean</span> symbol=<span class="literal">false</span>;<span class="comment">//标志正负号</span></span><br><span class="line">        <span class="type">boolean</span> eOrE=<span class="literal">false</span>;<span class="comment">//标志e、E是否出现</span></span><br><span class="line">        <span class="type">boolean</span> dot=<span class="literal">false</span>;<span class="comment">//标志点号是否出现</span></span><br><span class="line">        <span class="keyword">if</span>(s.length()==<span class="number">0</span>)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        s=s.trim();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i)&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;s.charAt(i)&lt;=<span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">                number=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(i)==<span class="string">&#x27;.&#x27;</span>&amp;&amp;!dot&amp;&amp;!eOrE)&#123;</span><br><span class="line">                dot=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>((s.charAt(i)==<span class="string">&#x27;e&#x27;</span>||s.charAt(i)==<span class="string">&#x27;E&#x27;</span>)&amp;&amp;!eOrE&amp;&amp;number)&#123;</span><br><span class="line">                eOrE=<span class="literal">true</span>;</span><br><span class="line">                number=<span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>((s.charAt(i)==<span class="string">&#x27;+&#x27;</span>||s.charAt(i)==<span class="string">&#x27;-&#x27;</span>)&amp;&amp;(i==<span class="number">0</span>||s.charAt(i-<span class="number">1</span>)==<span class="string">&#x27;e&#x27;</span>||s.charAt(i-<span class="number">1</span>)==<span class="string">&#x27;E&#x27;</span>))&#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> number;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">canJump</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">            <span class="comment">//使用贪心方法</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">farest</span> <span class="operator">=</span> <span class="number">0</span>; <span class="comment">//可以到达的最远距离</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i&lt;=farest)&#123;</span><br><span class="line">                    farest = Integer.max(farest,i+nums[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> farest &gt;= nums.length - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -233,16 +212,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/13/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer20.%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/12/15/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2023/12/11/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98%20%20%20%20%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -262,703 +300,14 @@
 
 
 
-
-  
-    <article id="post-每日一题 剑指Offer 19.正则表达式匹配" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer-19-正则表达式匹配"><a href="#每日一题-剑指Offer-19-正则表达式匹配" class="headerlink" title="每日一题 剑指Offer 19.正则表达式匹配"></a>每日一题 剑指Offer 19.正则表达式匹配</h2><p>2023&#x2F;8&#x2F;12<img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308122016683.jpg" alt="iria" style="zoom:25%;" /></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请实现一个函数用来匹配包含<code>&#39;. &#39;</code>和<code>&#39;*&#39;</code>的正则表达式。模式中的字符<code>&#39;.&#39;</code>表示任意一个字符，而<code>&#39;*&#39;</code>表示它前面的字符可以出现任意次（含0次）。在本题中，匹配是指字符串的所有字符匹配整个模式。例如，字符串<code>&quot;aaa&quot;</code>与模式<code>&quot;a.a&quot;</code>和<code>&quot;ab*ac*a&quot;</code>匹配，但与<code>&quot;aa.a&quot;</code>和<code>&quot;ab*a&quot;</code>均不匹配。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">s = &quot;aa&quot;</span><br><span class="line">p = &quot;a&quot;</span><br><span class="line">输出: false</span><br><span class="line">解释: &quot;a&quot; 无法匹配 &quot;aa&quot; 整个字符串。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">s = &quot;aa&quot;</span><br><span class="line">p = &quot;a*&quot;</span><br><span class="line">输出: true</span><br><span class="line">解释: 因为 &#x27;*&#x27; 代表可以匹配零个或多个前面的那一个元素, 在这里前面的元素就是 &#x27;a&#x27;。因此，字符串 &quot;aa&quot; 可被视为 &#x27;a&#x27; 重复了一次。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">s = &quot;ab&quot;</span><br><span class="line">p = &quot;.*&quot;</span><br><span class="line">输出: true</span><br><span class="line">解释: &quot;.*&quot; 表示可匹配零个或多个（&#x27;*&#x27;）任意字符（&#x27;.&#x27;）。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 4:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">s = &quot;aab&quot;</span><br><span class="line">p = &quot;c*a*b&quot;</span><br><span class="line">输出: true</span><br><span class="line">解释: 因为 &#x27;*&#x27; 表示零个或多个，这里 &#x27;c&#x27; 为 0 个, &#x27;a&#x27; 被重复一次。因此可以匹配字符串 &quot;aab&quot;。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 5:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入:</span><br><span class="line">s = &quot;mississippi&quot;</span><br><span class="line">p = &quot;mis*is*p*.&quot;</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><code>s</code> 可能为空，且只包含从 <code>a-z</code> 的小写字母。</li>
-<li><code>p</code> 可能为空，且只包含从 <code>a-z</code> 的小写字母以及字符 <code>.</code> 和 <code>*</code>，无连续的 <code>&#39;*&#39;</code>。</li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>这题怎么说呢，就挺那啥的。python一行解决，java要用动态规划。</li>
-<li>每一次都做不对，真的sb</li>
-<li>这题不用动规真的没法做，但是真正做起来情况又有很多，容易晕。</li>
-<li>首先是具有迷惑性的’<strong>.</strong>‘,其实这个完全可以不考虑，因为它是匹配<strong>一个任意字符</strong>，只需要每次把它都当作匹配就行，即:</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(str2.charAt(j)==<span class="string">&#x27;.&#x27;</span>) f[i][j]=f[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>然后就是最好考虑的字母与字母，有：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(str1.charAt(i)==str2.charAt(j)) f[i][j]=f[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line"><span class="keyword">else</span> f[i][j]=<span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>最后是**’*’**,有：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(str1.charAt(i)==str2.charAt(j-<span class="number">1</span>))</span><br><span class="line">  f[i][j]=f[i-<span class="number">1</span>][j]||f[i][j-<span class="number">2</span>];</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">  f[i][j]=f[i][j-<span class="number">2</span>];</span><br></pre></td></tr></table></figure>
-
-<p>为什么需要将str1[i]与str2[j-1]比较呢？</p>
-<p>因为*本身没意义。</p>
-<p>常态下总有 f[i] [j]&#x3D;f[i] [j-2] 因为*可以让前面出现的一个字符消失</p>
-<p>当str1[i]&#x3D;str2[j-1]时还有f[i] [j]&#x3D;f[i-1] [j]。</p>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isMatch</span><span class="params">(String s, String p)</span> &#123;</span><br><span class="line">        <span class="type">int</span> m=s.length();</span><br><span class="line">        <span class="type">int</span> n=p.length();</span><br><span class="line"></span><br><span class="line">        <span class="type">boolean</span>[][] f=<span class="keyword">new</span> <span class="title class_">boolean</span>[m+<span class="number">1</span>][n+<span class="number">1</span>];</span><br><span class="line">        f[<span class="number">0</span>][<span class="number">0</span>]=<span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(p.charAt(j-<span class="number">1</span>)==<span class="string">&#x27;*&#x27;</span>)&#123;</span><br><span class="line">                    f[i][j]=f[i][j-<span class="number">2</span>];</span><br><span class="line">                    <span class="keyword">if</span>(matches(s,p,i,j-<span class="number">1</span>))&#123;</span><br><span class="line">                        f[i][j]=f[i][j] || f[i-<span class="number">1</span>][j];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="keyword">if</span>(matches(s,p,i,j))&#123;</span><br><span class="line">                        f[i][j]=f[i-<span class="number">1</span>][j-<span class="number">1</span>];</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f[m][n];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">matches</span><span class="params">(String s,String p,<span class="type">int</span> i,<span class="type">int</span> j)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(i==<span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(p.charAt(j-<span class="number">1</span>)==<span class="string">&#x27;.&#x27;</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> s.charAt(i-<span class="number">1</span>)==p.charAt(j-<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/12/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer%2019.%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%8C%B9%E9%85%8D/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer.18 删除链表的节点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer-18-删除链表的节点"><a href="#每日一题-剑指Offer-18-删除链表的节点" class="headerlink" title="每日一题 剑指Offer.18 删除链表的节点"></a>每日一题 剑指Offer.18 删除链表的节点</h2><p>BA的小春<img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308112109717.jpg" alt="halu" style="zoom:25%;" /></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定单向链表的头指针和一个要删除的节点的值，定义一个函数删除该节点。</p>
-<p>返回删除后的链表的头节点。</p>
-<p><strong>注意：</strong>此题对比原题有改动</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: head = [4,5,1,9], val = 5</span><br><span class="line">输出: [4,1,9]</span><br><span class="line">解释: 给定你链表中值为 5 的第二个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 1 -&gt; 9.</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: head = [4,5,1,9], val = 1</span><br><span class="line">输出: [4,5,9]</span><br><span class="line">解释: 给定你链表中值为 1 的第三个节点，那么在调用了你的函数之后，该链表应变为 4 -&gt; 5 -&gt; 9.</span><br></pre></td></tr></table></figure>
-
-<p><strong>说明：</strong></p>
-<ul>
-<li>题目保证链表中节点的值互不相同</li>
-<li>若使用 C 或 C++ 语言，你不需要 <code>free</code> 或 <code>delete</code> 被删除的节点</li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>删除链表节点一般避免不了对链表从头到尾的遍历，此时需要注意<strong>头部</strong>与<strong>尾部</strong>两个位置，在while循环的时候也要注意<strong>循环的条件</strong>不要出现报错，同时需要保证<strong>对链表每一个节点都需要遍历到</strong>。</p>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode(int x) &#123; val = x; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">deleteNode</span><span class="params">(ListNode head, <span class="type">int</span> val)</span> &#123;</span><br><span class="line">        ListNode node=head;</span><br><span class="line">        <span class="keyword">if</span>(node.val==val) <span class="keyword">return</span> head.next;</span><br><span class="line">        <span class="keyword">while</span>(node!=<span class="literal">null</span> &amp;&amp; node.next!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(node.next.val==val)&#123;</span><br><span class="line">                ListNode tmp=node.next;</span><br><span class="line">                node.next=tmp.next;</span><br><span class="line">            &#125;</span><br><span class="line">            node=node.next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/11/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer.18%20%E5%88%A0%E9%99%A4%E9%93%BE%E8%A1%A8%E7%9A%84%E8%8A%82%E7%82%B9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer 17.打印从1到最大的n位数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>输入数字 <code>n</code>，按顺序打印出从 1 到最大的 n 位十进制数。比如输入 3，则打印出 1、2、3 一直到最大的 3 位数 999。</p>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: n = 1</span><br><span class="line">输出: [1,2,3,4,5,6,7,8,9]</span><br></pre></td></tr></table></figure>
-
-<p>说明：</p>
-<ul>
-<li>用返回一个整数列表来代替打印</li>
-<li>n 为正整数</li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
-<li>不考虑大数，直接用POW函数计算最大数遍历加入数组即可。</li>
-<li>考虑大数使用递归。</li>
-</ol>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ol>
-<li>不考虑大数</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] printNumbers(<span class="type">int</span> n) &#123;</span><br><span class="line">        <span class="type">int</span> maxNum=(<span class="type">int</span>)Math.pow(<span class="number">10</span>,n)-<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span>[] arr = <span class="keyword">new</span> <span class="title class_">int</span>[maxNum];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;maxNum;i++)&#123;</span><br><span class="line">            arr[i]=i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> arr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="2">
-<li>考虑大数(递归)</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="type">int</span>[] res;</span><br><span class="line">    <span class="type">int</span> <span class="variable">nine</span> <span class="operator">=</span> <span class="number">0</span>, count = <span class="number">0</span>, start, n;</span><br><span class="line">    <span class="type">char</span>[] num, loop = &#123;<span class="string">&#x27;0&#x27;</span>, <span class="string">&#x27;1&#x27;</span>, <span class="string">&#x27;2&#x27;</span>, <span class="string">&#x27;3&#x27;</span>, <span class="string">&#x27;4&#x27;</span>, <span class="string">&#x27;5&#x27;</span>, <span class="string">&#x27;6&#x27;</span>, <span class="string">&#x27;7&#x27;</span>, <span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;9&#x27;</span>&#125;;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] printNumbers(<span class="type">int</span> n) &#123;</span><br><span class="line">        <span class="built_in">this</span>.n = n;</span><br><span class="line">        res = <span class="keyword">new</span> <span class="title class_">int</span>[(<span class="type">int</span>)Math.pow(<span class="number">10</span>, n) - <span class="number">1</span>];</span><br><span class="line">        num = <span class="keyword">new</span> <span class="title class_">char</span>[n];</span><br><span class="line">        start = n - <span class="number">1</span>;</span><br><span class="line">        dfs(<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">dfs</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(x == n) &#123;</span><br><span class="line">            <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> String.valueOf(num).substring(start);</span><br><span class="line">            <span class="keyword">if</span>(!s.equals(<span class="string">&quot;0&quot;</span>)) res[count++] = Integer.parseInt(s);</span><br><span class="line">            <span class="keyword">if</span>(n - start == nine) start--;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">char</span> i : loop) &#123;</span><br><span class="line">            <span class="keyword">if</span>(i == <span class="string">&#x27;9&#x27;</span>) nine++;</span><br><span class="line">            num[x] = i;</span><br><span class="line">            dfs(x + <span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        nine--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/10/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer%2017.%E6%89%93%E5%8D%B0%E4%BB%8E1%E5%88%B0%E6%9C%80%E5%A4%A7%E7%9A%84n%E4%BD%8D%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer.16 数值的整数次方" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer-16-数值的整数次方"><a href="#每日一题-剑指Offer-16-数值的整数次方" class="headerlink" title="每日一题 剑指Offer.16 数值的整数次方"></a>每日一题 剑指Offer.16 数值的整数次方</h2><p>圣圆未花（BA）<img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308092031208.jpg" alt="mika" style="zoom:50%;" /></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>实现 <a target="_blank" rel="noopener" href="https://www.cplusplus.com/reference/valarray/pow/">pow(<em>x</em>, <em>n</em>)</a> ，即计算 x 的 n 次幂函数（即，xn）。不得使用库函数，同时不需要考虑大数问题。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：x = 2.00000, n = 10</span><br><span class="line">输出：1024.00000</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：x = 2.10000, n = 3</span><br><span class="line">输出：9.26100</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：x = 2.00000, n = -2</span><br><span class="line">输出：0.25000</span><br><span class="line">解释：2-2 = 1/22 = 1/4 = 0.25</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>-100.0 &lt; x &lt; 100.0</code></li>
-<li><code>-231 &lt;= n &lt;= 231-1</code></li>
-<li><code>n</code> 是一个整数</li>
-<li>要么 <code>x</code> 不为零，要么 <code>n &gt; 0</code> 。</li>
-<li><code>-104 &lt;= xn &lt;= 104</code></li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>求数值的整数次方，且不涉及大数运算，直接套用快速幂算法就能AC</li>
-<li>注意n的范围，INT_MIN到INT_MAX，此处若是用到了-n，有可能会爆int所以采用了Long存变量n。</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">myPow</span><span class="params">(<span class="type">double</span> x, <span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">long</span> <span class="variable">N</span> <span class="operator">=</span> (<span class="type">long</span>) n;</span><br><span class="line">        <span class="keyword">if</span>(N&gt;<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> QM(x,n);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> <span class="number">1.0</span>/QM(x,-n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">QM</span><span class="params">(<span class="type">double</span> x,<span class="type">long</span> n)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">1.0</span>;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="type">double</span> <span class="variable">y</span> <span class="operator">=</span> QM(x,n/<span class="number">2</span>);</span><br><span class="line">            <span class="keyword">if</span>(n%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> y*y;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> y*y*x;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/09/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer.16%20%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指Offer 15. 二进制中1的个数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer-15-二进制中1的个数"><a href="#每日一题-剑指Offer-15-二进制中1的个数" class="headerlink" title="每日一题 剑指Offer 15. 二进制中1的个数"></a>每日一题 剑指Offer 15. 二进制中1的个数</h2><img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308081936950.jpg" alt="mifa" style="zoom:50%;" />
-
-
-
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>编写一个函数，输入是一个无符号整数（以二进制串的形式），返回其二进制表达式中数字位数为 ‘1’ 的个数（也被称为 <a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Hamming_weight">汉明重量</a>).）。</p>
-<p><strong>提示：</strong></p>
-<ul>
-<li>请注意，在某些语言（如 Java）中，没有无符号整数类型。在这种情况下，输入和输出都将被指定为有符号整数类型，并且不应影响您的实现，因为无论整数是有符号的还是无符号的，其内部的二进制表示形式都是相同的。</li>
-<li>在 Java 中，编译器使用 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BA%8C%E8%BF%9B%E5%88%B6%E8%A1%A5%E7%A0%81/5295284">二进制补码</a> 记法来表示有符号整数。因此，在上面的 <strong>示例 3</strong> 中，输入表示有符号整数 <code>-3</code>。</li>
-</ul>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 11 (控制台输入 00000000000000000000000000001011)</span><br><span class="line">输出：3</span><br><span class="line">解释：输入的二进制串 00000000000000000000000000001011 中，共有三位为 &#x27;1&#x27;。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 128 (控制台输入 00000000000000000000000010000000)</span><br><span class="line">输出：1</span><br><span class="line">解释：输入的二进制串 00000000000000000000000010000000 中，共有一位为 &#x27;1&#x27;。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：n = 4294967293 (控制台输入 11111111111111111111111111111101，部分语言中 n = -3）</span><br><span class="line">输出：31</span><br><span class="line">解释：输入的二进制串 11111111111111111111111111111101 中，共有 31 位为 &#x27;1&#x27;。</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li>输入必须是长度为 <code>32</code> 的 <strong>二进制串</strong></li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>求二进制中1的个数是位运算题目经典中的经典。</li>
-<li>我们可以通过将n&amp;2^i来计算每一位是否为1，还有一种优化循环的做法，将n&amp;(n-1)再赋值给n，直到n为0时循环结束。</li>
-<li>这是因为当n&amp;(n-1)时，n最后一位的1会被变成0，能进行几次这样的操作就说明有几个1。</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="comment">// you need to treat n as an unsigned value</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hammingWeight</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n!=<span class="number">0</span>)&#123;</span><br><span class="line">            n=n&amp;(n-<span class="number">1</span>);</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;   </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/08/%E5%89%91%E6%8C%87Offer%2015.%20%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer.14 剪绳子II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer-14-剪绳子II"><a href="#每日一题-剑指Offer-14-剪绳子II" class="headerlink" title="每日一题 剑指Offer.14 剪绳子II"></a>每日一题 剑指Offer.14 剪绳子II</h2><p>晋二和美月 （夏之锁）<img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308071503269.jpg" alt="lock" style="zoom:50%;" /></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一根长度为 <code>n</code> 的绳子，请把绳子剪成整数长度的 <code>m</code> 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 <code>k[0],k[1]...k[m - 1]</code> 。请问 <code>k[0]*k[1]*...*k[m - 1]</code> 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
-<p>答案需要取模 1e9+7（1000000007），如计算初始结果为：1000000008，请返回 1。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 2</span><br><span class="line">输出: 1</span><br><span class="line">解释: 2 = 1 + 1, 1 × 1 = 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 10</span><br><span class="line">输出: 36</span><br><span class="line">解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>2 &lt;= n &lt;= 1000</code></li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>思路整体和<em><strong>剪绳子I</strong></em>一模一样，在每个步骤上加上了取余操作</li>
-<li>为了防止数过大造成溢出，中间值采用long数据类型，最后再强转回int进行输出。</li>
-<li>剪绳子I可以通过动态规划做，这题无法通过动态规划做。</li>
-</ul>
-<p>查看<a target="_blank" rel="noopener" href="https://sjxm0721.github.io/2023/08/06/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer%2014.%20%E5%89%AA%E7%BB%B3%E5%AD%90/">剪绳子I</a></p>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">MOD</span> <span class="operator">=</span> <span class="number">1000000007</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">cuttingRope</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;<span class="number">4</span>) <span class="keyword">return</span> n-<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">div</span> <span class="operator">=</span> n / <span class="number">3</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">mod</span> <span class="operator">=</span> n % <span class="number">3</span>;</span><br><span class="line">        <span class="type">long</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;div-<span class="number">1</span>;i++)&#123;</span><br><span class="line">            ans=(ans*<span class="number">3</span>)%MOD;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(mod == <span class="number">0</span>) <span class="keyword">return</span> (<span class="type">int</span>)(ans*<span class="number">3</span>%MOD);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(mod == <span class="number">1</span>)<span class="keyword">return</span> (<span class="type">int</span>)(ans*<span class="number">4</span>%MOD);</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> (<span class="type">int</span>)(ans*<span class="number">6</span>%MOD);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/07/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer.14%20%E5%89%AA%E7%BB%B3%E5%AD%90II/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer 14. 剪绳子" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer-14-剪绳子"><a href="#每日一题-剑指Offer-14-剪绳子" class="headerlink" title="每日一题 剑指Offer 14. 剪绳子"></a>每日一题 剑指Offer 14. 剪绳子</h2><p>妈！！！<img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308062026240.jpg" alt="mather" style="zoom:50%;" /></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一根长度为 <code>n</code> 的绳子，请把绳子剪成整数长度的 <code>m</code> 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 <code>k[0],k[1]...k[m-1]</code> 。请问 <code>k[0]*k[1]*...*k[m-1]</code> 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 2</span><br><span class="line">输出: 1</span><br><span class="line">解释: 2 = 1 + 1, 1 × 1 = 1</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 10</span><br><span class="line">输出: 36</span><br><span class="line">解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>2 &lt;= n &lt;= 58</code></li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>这题有一种单纯数学的做法，很简单。</li>
-<li>首先，我们考虑一个特殊的数：<em><strong>4</strong></em>，我们把<em><strong>4</strong></em>这个数按题意进行拆分，分成乘积最大的两部分：<strong>2</strong>和<strong>2</strong>，此时刚好有2x2&#x3D;&#x3D;2+2，我们不难发现<em><strong>4</strong></em>这个数起到了分割作用，大于4的数拆分后最大乘积大于该数本身，小于4的数拆分最大乘积小于该数本身。这也就意味着我们的拆分结果中就一定不能出现大于等于4的数，不然我们通过把它拆分一定会得到更大的结果（也可能相同）。</li>
-<li>所以对给出的一个数，我们尽可能得把它拆分成3得到的结果一定是最大的，之后我们再根据余数进行分类讨论就能ac</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">cuttingRope</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=<span class="number">3</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> n-<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">mod</span> <span class="operator">=</span> n % <span class="number">3</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">div</span> <span class="operator">=</span> n / <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(mod == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="type">int</span>) Math.pow(<span class="number">3</span>,div);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(mod == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="type">int</span>) Math.pow(<span class="number">3</span>,div-<span class="number">1</span>)*<span class="number">4</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="type">int</span>) Math.pow(<span class="number">3</span>,div)*<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/06/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer%2014.%20%E5%89%AA%E7%BB%B3%E5%AD%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer 13. 机器人的运动范围" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer-13-机器人的运动范围"><a href="#每日一题-剑指Offer-13-机器人的运动范围" class="headerlink" title="每日一题 剑指Offer 13. 机器人的运动范围"></a>每日一题 剑指Offer 13. 机器人的运动范围</h2><p>纸袋套头新海天（9-nine 天天天）<img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308052020582.jpg" alt="tian"></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>地上有一个m行n列的方格，从坐标 <code>[0,0]</code> 到坐标 <code>[m-1,n-1]</code> 。一个机器人从坐标 <code>[0, 0] </code>的格子开始移动，它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。例如，当k为18时，机器人能够进入方格 [35, 37] ，因为3+5+3+7&#x3D;18。但它不能进入方格 [35, 38]，因为3+5+3+8&#x3D;19。请问该机器人能够到达多少个格子？</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：m = 2, n = 3, k = 1</span><br><span class="line">输出：3</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：m = 3, n = 1, k = 0</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= n,m &lt;= 100</code></li>
-<li><code>0 &lt;= k &lt;= 20</code></li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>这是一道很经典的<strong>广度优先算法题</strong></li>
-<li>如何判断什么时候dfs，什么时候bfs呢？<ol>
-<li>深度优先搜索（dfs），一般用于<strong>最大匹配</strong>一类的问题，使用回溯法解决是dfs的一大特点。</li>
-<li>广度优秀搜索（bfs），一般用于<strong>最多匹配</strong>一类的问题，使用队列是bfs的一大特点</li>
-</ol>
-</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span>[][] value;<span class="comment">//存放该位置的数位之和</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">1</span>;<span class="comment">//结果值</span></span><br><span class="line">    Queue&lt;<span class="type">int</span>[]&gt; queue;<span class="comment">//bfs使用的队列</span></span><br><span class="line">    <span class="type">boolean</span>[][] visited;<span class="comment">//判断该位置是否走过</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//计算数位和的函数</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getValue</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">        <span class="type">int</span> num=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(n!=<span class="number">0</span>)&#123;</span><br><span class="line">            num+=n%<span class="number">10</span>;</span><br><span class="line">            n/=<span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">movingCount</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(k==<span class="number">0</span>) <span class="keyword">return</span> ans;<span class="comment">//特殊情况</span></span><br><span class="line"></span><br><span class="line">        visited=<span class="keyword">new</span> <span class="title class_">boolean</span>[m][n];</span><br><span class="line">        value=<span class="keyword">new</span> <span class="title class_">int</span>[m][n];</span><br><span class="line">        queue=<span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;<span class="type">int</span>[]&gt;();</span><br><span class="line">        <span class="type">int</span>[] dx=&#123;<span class="number">0</span>,<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="type">int</span>[] dy=&#123;<span class="number">1</span>,<span class="number">0</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;m;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;n;j++)&#123;</span><br><span class="line">                value[i][j]=getValue(i)+getValue(j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        visited[<span class="number">0</span>][<span class="number">0</span>]=<span class="literal">true</span>;</span><br><span class="line">        queue.offer(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">0</span>,<span class="number">0</span>&#125;);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//使用bfs解决问题</span></span><br><span class="line">        <span class="keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">            <span class="type">int</span>[] out = queue.poll();</span><br><span class="line">            <span class="type">int</span> tmpX=out[<span class="number">0</span>];</span><br><span class="line">            <span class="type">int</span> tmpY=out[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>;i++)&#123;</span><br><span class="line">                <span class="type">int</span> newX=tmpX+dx[i];</span><br><span class="line">                <span class="type">int</span> newY=tmpY+dy[i];</span><br><span class="line">                <span class="keyword">if</span>(newX&lt;<span class="number">0</span>||newX&gt;=m||newY&lt;<span class="number">0</span>||newY&gt;=n||visited[newX][newY]==<span class="literal">true</span>||value[newX][newY]&gt;k)&#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    visited[newX][newY]=<span class="literal">true</span>;</span><br><span class="line">                    queue.offer(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;newX,newY&#125;);</span><br><span class="line">                    ans++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><em><strong>时间复杂度比较高，主要是因为算出了整个数组的数位和，其实不必要</strong></em></p>
-<h4 id="官方解法"><a href="#官方解法" class="headerlink" title="官方解法"></a>官方解法</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">movingCount</span><span class="params">(<span class="type">int</span> m, <span class="type">int</span> n, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Queue&lt;<span class="type">int</span>[]&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;<span class="type">int</span>[]&gt;();</span><br><span class="line">        <span class="comment">// 向右和向下的方向数组</span></span><br><span class="line">        <span class="type">int</span>[] dx = &#123;<span class="number">0</span>, <span class="number">1</span>&#125;;</span><br><span class="line">        <span class="type">int</span>[] dy = &#123;<span class="number">1</span>, <span class="number">0</span>&#125;;</span><br><span class="line">        <span class="type">boolean</span>[][] vis = <span class="keyword">new</span> <span class="title class_">boolean</span>[m][n];</span><br><span class="line">        queue.offer(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">0</span>, <span class="number">0</span>&#125;);</span><br><span class="line">        vis[<span class="number">0</span>][<span class="number">0</span>] = <span class="literal">true</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (!queue.isEmpty()) &#123;</span><br><span class="line">            <span class="type">int</span>[] cell = queue.poll();</span><br><span class="line">            <span class="type">int</span> <span class="variable">x</span> <span class="operator">=</span> cell[<span class="number">0</span>], y = cell[<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">2</span>; ++i) &#123;</span><br><span class="line">                <span class="type">int</span> <span class="variable">tx</span> <span class="operator">=</span> dx[i] + x;</span><br><span class="line">                <span class="type">int</span> <span class="variable">ty</span> <span class="operator">=</span> dy[i] + y;</span><br><span class="line">                <span class="keyword">if</span> (tx &lt; <span class="number">0</span> || tx &gt;= m || ty &lt; <span class="number">0</span> || ty &gt;= n || vis[tx][ty] || get(tx) + get(ty) &gt; k) &#123;</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                queue.offer(<span class="keyword">new</span> <span class="title class_">int</span>[]&#123;tx, ty&#125;);</span><br><span class="line">                vis[tx][ty] = <span class="literal">true</span>;</span><br><span class="line">                ans++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> <span class="title function_">get</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">res</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (x != <span class="number">0</span>) &#123;</span><br><span class="line">            res += x % <span class="number">10</span>;</span><br><span class="line">            x /= <span class="number">10</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/05/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer%2013.%20%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer 12.矩阵中的路径" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer-12-矩阵中的路径"><a href="#每日一题-剑指Offer-12-矩阵中的路径" class="headerlink" title="每日一题 剑指Offer 12.矩阵中的路径"></a>每日一题 剑指Offer 12.矩阵中的路径</h2><p>最近通关了人狼村之谜，发张女主美图<img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308042056604.jpg" alt="小芊"></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个 <code>m x n</code> 二维字符网格 <code>board</code> 和一个字符串单词 <code>word</code> 。如果 <code>word</code> 存在于网格中，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
-<p>单词必须按照字母顺序，通过相邻的单元格内的字母构成，其中“相邻”单元格是那些水平相邻或垂直相邻的单元格。同一个单元格内的字母不允许被重复使用。</p>
-<p>例如，在下面的 3×4 的矩阵中包含单词 “ABCCED”（单词中的字母已标出）。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308042057487.jpg" alt="img"></p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：board = [[&quot;A&quot;,&quot;B&quot;,&quot;C&quot;,&quot;E&quot;],[&quot;S&quot;,&quot;F&quot;,&quot;C&quot;,&quot;S&quot;],[&quot;A&quot;,&quot;D&quot;,&quot;E&quot;,&quot;E&quot;]], word = &quot;ABCCED&quot;</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：board = [[&quot;a&quot;,&quot;b&quot;],[&quot;c&quot;,&quot;d&quot;]], word = &quot;abcd&quot;</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>m == board.length</code></li>
-<li><code>n = board[i].length</code></li>
-<li><code>1 &lt;= m, n &lt;= 6</code></li>
-<li><code>1 &lt;= word.length &lt;= 15</code></li>
-<li><code>board </code>和<code>word</code>仅由大小写英文字母组成</li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>经典回溯</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
-<li>码风臭得像一坨屎</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span>[] x;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span>[] y;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> wordLength;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> len1;</span><br><span class="line">    <span class="keyword">private</span> <span class="type">int</span> len2;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">exist</span><span class="params">(<span class="type">char</span>[][] board, String word)</span> &#123;</span><br><span class="line">        <span class="type">boolean</span>[][] used=<span class="keyword">new</span> <span class="title class_">boolean</span>[<span class="number">6</span>][<span class="number">6</span>];</span><br><span class="line">        x= <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,-<span class="number">1</span>&#125;;</span><br><span class="line">        y= <span class="keyword">new</span> <span class="title class_">int</span>[]&#123;<span class="number">1</span>,<span class="number">0</span>,-<span class="number">1</span>,<span class="number">0</span>&#125;;</span><br><span class="line">        wordLength=word.length();</span><br><span class="line">        len1=board.length;</span><br><span class="line">        len2=board[<span class="number">0</span>].length;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len1;i++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;len2;j++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> m=<span class="number">0</span>;m&lt;<span class="number">6</span>;m++)&#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="type">int</span> n=<span class="number">0</span>;n&lt;<span class="number">6</span>;n++)&#123;</span><br><span class="line">                        used[m][n]=<span class="literal">false</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(board[i][j]==word.charAt(<span class="number">0</span>))&#123;</span><br><span class="line">                    <span class="keyword">if</span>(dfs(board,word,used,i,j,<span class="number">0</span>)==<span class="literal">true</span>)&#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">dfs</span><span class="params">(<span class="type">char</span>[][] board,String word,<span class="type">boolean</span>[][] used,<span class="type">int</span> xPos,<span class="type">int</span> yPos,<span class="type">int</span> depth)</span>&#123;</span><br><span class="line">        used[xPos][yPos]=<span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(depth==wordLength-<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">4</span>;i++)&#123;</span><br><span class="line">            <span class="type">int</span> newX=xPos+x[i];</span><br><span class="line">            <span class="type">int</span> newY=yPos+y[i];</span><br><span class="line">            <span class="keyword">if</span>(newX&lt;<span class="number">0</span>||newX&gt;=len1||newY&lt;<span class="number">0</span>||newY&gt;=len2||used[newX][newY]==<span class="literal">true</span>)&#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(board[newX][newY]==word.charAt(depth+<span class="number">1</span>))</span><br><span class="line">                    <span class="keyword">if</span>(dfs(board,word,used,newX,newY,depth+<span class="number">1</span>)==<span class="literal">true</span>)&#123;</span><br><span class="line">                        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        used[xPos][yPos]=<span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/04/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer%2012.%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -981,8 +330,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

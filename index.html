@@ -152,6 +152,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面试经典150题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="面试经典150题"><a href="#面试经典150题" class="headerlink" title="面试经典150题"></a>面试经典150题</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个非负整数数组 <code>nums</code> ，你最初位于数组的 <strong>第一个下标</strong> 。数组中的每个元素代表你在该位置可以跳跃的最大长度。</p>
+<p>判断你是否能够到达最后一个下标，如果可以，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [2,3,1,1,4]</span><br><span class="line">输出：true</span><br><span class="line">解释：可以先跳 1 步，从下标 0 到达下标 1, 然后再从下标 1 跳 3 步到达最后一个下标。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [3,2,1,0,4]</span><br><span class="line">输出：false</span><br><span class="line">解释：无论怎样，总会到达下标为 3 的位置。但该下标的最大跳跃长度是 0 ， 所以永远不可能到达最后一个下标。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 104</code></li>
+<li><code>0 &lt;= nums[i] &lt;= 105</code></li>
+</ul>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>使用贪心算法，用一个变量维护当前可以到达的最远距离，然后顺序遍历一个数组，若当前点在最远距离之内，则此点可以到达，并再用这个点去更新当前可以到达的最远距离。</li>
+<li>若最终最远距离&gt;&#x3D;终点则跳跃游戏可以到达，返回true；否则返回false。</li>
+</ul>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">canJump</span><span class="params">(<span class="type">int</span>[] nums)</span> &#123;</span><br><span class="line">            <span class="comment">//使用贪心方法</span></span><br><span class="line">            <span class="type">int</span> <span class="variable">farest</span> <span class="operator">=</span> <span class="number">0</span>; <span class="comment">//可以到达的最远距离</span></span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;nums.length;i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(i&lt;=farest)&#123;</span><br><span class="line">                    farest = Integer.max(farest,i+nums[i]);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> farest &gt;= nums.length - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/12/15/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-面试经典150题    多数元素" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -795,200 +863,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/09/16/Js%E6%95%B0%E7%BB%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-flex布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wwwjjjjj666/article/details/128033184">flex布局详解</a></p>
-<h4 id="flex布局为W3C提出的一种布局方式，可以简便、完整、响应式地实现各种页面布局。"><a href="#flex布局为W3C提出的一种布局方式，可以简便、完整、响应式地实现各种页面布局。" class="headerlink" title="flex布局为W3C提出的一种布局方式，可以简便、完整、响应式地实现各种页面布局。"></a>flex布局为W3C提出的一种布局方式，可以简便、完整、响应式地实现各种页面布局。</h4><ul>
-<li>什么是flex布局</li>
-</ul>
-<p>flex布局，即为<em><strong>“弹性布局”</strong></em>，用来为<strong>盒装模型</strong>提供最大的<strong>灵活性</strong>。所有容器都可以指定为flex布局：</p>
-<ol>
-<li>块元素的flex布局</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">	<span class="attribute">display</span>:flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="2">
-<li>行内元素的flex布局</li>
-</ol>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.sp</span>&#123;</span><br><span class="line">  <span class="attribute">display</span>:inline-flex;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="注意，为某个元素设置flex布局后，子元素的float、clear和vertical-align属性都将失效"><a href="#注意，为某个元素设置flex布局后，子元素的float、clear和vertical-align属性都将失效" class="headerlink" title="注意，为某个元素设置flex布局后，子元素的float、clear和vertical-align属性都将失效"></a>注意，为某个元素设置flex布局后，子元素的float、clear和vertical-align属性都将失效</h5><ul>
-<li>flex容器</li>
-</ul>
-<p>采用<strong>flex布局</strong>后的元素，称为flex容器，它的<strong>所有子元素</strong>都自动成为容器成员。</p>
-<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202309141931712.png" alt="d258e3ec1b70fec26db125ed7c103c8b"  />
-
-<p>容器默认存在两根轴：水平的<strong>主轴</strong>（main axis）和垂直的<strong>交叉轴</strong>（cross axis）。主轴的开始位置（与边框的交叉点）叫做main start，结束位置叫做main end；交叉轴的开始位置叫做cross start，结束位置叫做cross end。</p>
-<p><em><strong>项目默认沿主轴排列</strong></em>。单个项目占据的主轴空间叫做main size，占据的交叉轴空间叫做cross size。</p>
-<ul>
-<li>flex容器的属性</li>
-</ul>
-<p>flex容器重要的六个属性：</p>
-<blockquote>
-<ol>
-<li>flex-direction</li>
-<li>flex-wrap</li>
-<li>flex-flow</li>
-<li>justify-content</li>
-<li>align-items</li>
-<li>align-content</li>
-</ol>
-</blockquote>
-<ol>
-<li>*<strong>flex-direction属性</strong></li>
-</ol>
-<p>决定<h4>主轴的方向</h4></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">flex-direction</span>: row | row-reverse | column | column-reverse; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><em><strong>row</strong>(默认值)：</em><em>以水平方向作为主轴，起点为左端</em>*(即项目水平从左到右排列)</p>
-<p>row-reverse: 与row相反,以水平方向为主轴，<strong>起点为右端</strong>(即项目水平<strong>从右到左</strong>排列)</p>
-<p><em><strong>column</strong>：以</em><em>垂直方向为主轴，起点在上方</em>*(即项目垂直从上到下排列)</p>
-<p>column-reverse：以垂直方向为主轴，<strong>起点在下方</strong>(即<strong>项目从下往上排列</strong>)</p>
-</blockquote>
-<ol start="2">
-<li>*<strong>flex-wrap属性</strong></li>
-</ol>
-<p>默认情况下，项目都排在一条线(又称“轴线”)上(方向与规则由flex-direction规定)。flex-wrap属性定义的是：如果一条轴线<strong>排不下元素</strong>，该如何<em><strong>换行</strong></em></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: nowrap | wrap | wrap-reverse;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>nowrap(默认)：不换行(列)。</p>
-<p><em><strong>wrap</strong>: 当主轴为</em>*横向<strong>时，多余的元素自动换行到</strong>下方<strong>，当主轴为</strong>纵向<strong>时，多余的元素自动换行到</strong>右方**。</p>
-<p>wrap-reverse: <strong>与wrap相反</strong>，当主轴为<strong>横向</strong>时，多余的元素自动换行到<strong>上方</strong>，当主轴为<strong>纵向</strong>时，多余的元素自动换行到<strong>左方</strong>。</p>
-</blockquote>
-<p>flex-wrap最终换行的效果与flex-direction密切相关。</p>
-<ol start="3">
-<li>*<strong>justify-content</strong></li>
-</ol>
-<p>justify-content属性定义了项目在<h4>主轴上的对齐方式</h4></p>
-<p><em><strong>注意区别flex-direction属性与justify-content属性，flex-direction决定的是项目在主轴上的排列方式，justify-content决定的是项目在主轴上的对齐方式</strong></em></p>
-<p>该对齐方式指的是<h4><b>同一轴线</b>上的所有元素</h4>在<strong>该轴上</strong>的哪里开始排列。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span>&#123;</span><br><span class="line">  <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>flex-start(默认)：与主轴的起点对齐(从起点开始排列)</p>
-<p>flex-end: 与主轴的终点对齐(从终点开始排列)</p>
-<p>*<strong>center</strong>: 与主轴的中点对齐(<strong>居中</strong>)</p>
-<p><em><strong>space-between</strong>: 在轴线所有空间</em><em>均匀排列</em>*(<strong>项目紧贴起点与终点，没有空隙</strong>)</p>
-<p><em><strong>space-around</strong>: <strong>均匀排列</strong>，项目最左边与最右边均</em><em>存在空隙<strong>，且</strong>项目之间的空隙是项目与边框之间的空隙的两倍*</em></p>
-</blockquote>
-<ol start="4">
-<li>*<strong>align-item</strong></li>
-</ol>
-<p>align-item属性定义项目在交叉轴上如何对齐。</p>
-<p>align-item是与justify-content相似的属性，只不过justify-content定义的是项目在<strong>主轴上的对齐方式</strong>，而flex-direction定义的是项目在<strong>交叉轴上的对齐方式</strong></p>
-<h4>justify-content与align-item针对的对象都是同一轴线上的所有元素</h4>
-
-<blockquote>
-<p>flex-start: 交叉轴的起点对齐。</p>
-<p>flex-end：交叉轴的终点对齐。</p>
-<p>*<strong>center</strong>：交叉轴的终点对齐。</p>
-<p><em><strong>baseline</strong>：项目第一行文字的</em>*基线对齐**。</p>
-<p>stretch(默认)：如果项目未设置高度或者高度设为auto，项目将占满整个容器的高度。</p>
-</blockquote>
-<ol start="5">
-<li>*<strong>align-content</strong></li>
-</ol>
-<p>align-content定义了<strong>多根轴线的对齐方式</strong>。如果项目只有一根轴线，该属性不起作用。</p>
-<h4>注意，align-content对应多根轴线，这点与align-item和justify-content不同</h4>
-
-<h4>align-content反而更像是flex-direction，但是flex-direction把同一轴线上每一个项目当成一个子项，而align-content把一条轴线上的所有项目当作一个子项</h4>
-
-<blockquote>
-<p>flex-start: 与交叉轴的起点对齐。</p>
-<p>flex-end：与交叉轴的终点对齐。</p>
-<p>*<strong>center</strong>：与交叉轴的中点对齐。</p>
-<p>*<strong>space-between</strong>：与交叉轴两端对齐，轴线之间的间隔平均分布（两端无空隙）。</p>
-<p>*<strong>space-around</strong>：每根轴线两端间隔相等。轴线之间的间隔为轴线与边框的间隔的两倍。</p>
-<p>stretch(默认)：主轴线占满整个交叉轴。</p>
-</blockquote>
-<ul>
-<li>flex项目的属性</li>
-</ul>
-<p>针对项目的6个属性</p>
-<blockquote>
-<p>order</p>
-<p>flex-grow</p>
-<p>flex-shrink</p>
-<p>flex-basis</p>
-<p>flex</p>
-<p>align-self</p>
-</blockquote>
-<ol>
-<li>order</li>
-</ol>
-<p>order定义项目在主轴上排列的顺序，数值越小，排列越靠前，默认为0。</p>
-<p>如果不给项目设置order值，默认值为0，那么项目的顺序按照结构顺序排列。</p>
-<ol start="2">
-<li>flex-grow</li>
-</ol>
-<p>flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。</p>
-<p>项目在主轴上按照flex-grow的数值比例进行分配。</p>
-<ol start="3">
-<li>flex-shrink</li>
-</ol>
-<p>flex-shrink属性定义了项目的缩小比例，默认为1，如果flex-shrink值为0，表示该项目不收缩。</p>
-<ol start="4">
-<li>flex-basis</li>
-</ol>
-<p>flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间。</p>
-<ol start="5">
-<li>flex属性</li>
-</ol>
-<p>flex属性是flex-grow，flex-shrink和flex-basis的简写，默认为0 1 auto。后两个属性可选。</p>
-<ol start="6">
-<li>align-self属性</li>
-</ol>
-<p>align-self属性允许单个项目有与其他项目<strong>不一样的对齐方式</strong>，可<strong>覆盖align-items属性</strong>。默认为auto，如果没有父元素，则等同于stretch。</p>
-<p>align-self属性有6个值，除了auto，其他都与align-items属性完全一致。</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/09/14/flex%E5%B8%83%E5%B1%80/">展开全文 >></a>
         </p>
       
 
