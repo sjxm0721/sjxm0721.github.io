@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="高频率点赞业务开发相关数据库表 用户表 account  like_num字段  弹幕表 barrage like_num字段  评论表 comment like_num字段  动态表 dynamic like_num字段  视频表 video like_num字段  点赞表 。。。。。。   使用redis作为缓存来减少高频访问数据库造成的服务端压力。 总体思路 前端针对高频操作进行防抖节流处理">
+  <meta name="description" content="面试经典150题 H指数题目给你一个整数数组 citations ，其中 citations[i] 表示研究者的第 i 篇论文被引用的次数。计算并返回该研究者的 h 指数。 根据维基百科上 h 指数的定义：h 代表“高引用次数” ，一名科研人员的 h 指数 是指他（她）至少发表了 h 篇论文，并且 至少 有 h 篇论文被引用次数大于等于 h 。如果 h 有多种可能的值，**h 指数** 是其中最大">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2023/10/26/%E9%AB%98%E9%A2%91%E7%8E%87%E7%82%B9%E8%B5%9E%E4%B8%9A%E5%8A%A1%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:url" content="http://example.com/2023/12/22/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98%20H%E6%8C%87%E6%95%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="高频率点赞业务开发相关数据库表 用户表 account  like_num字段  弹幕表 barrage like_num字段  评论表 comment like_num字段  动态表 dynamic like_num字段  视频表 video like_num字段  点赞表 。。。。。。   使用redis作为缓存来减少高频访问数据库造成的服务端压力。 总体思路 前端针对高频操作进行防抖节流处理">
+<meta property="og:description" content="面试经典150题 H指数题目给你一个整数数组 citations ，其中 citations[i] 表示研究者的第 i 篇论文被引用的次数。计算并返回该研究者的 h 指数。 根据维基百科上 h 指数的定义：h 代表“高引用次数” ，一名科研人员的 h 指数 是指他（她）至少发表了 h 篇论文，并且 至少 有 h 篇论文被引用次数大于等于 h 。如果 h 有多种可能的值，**h 指数** 是其中最大">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-10-26T02:41:54.204Z">
-<meta property="article:modified_time" content="2023-10-26T02:41:54.204Z">
+<meta property="article:published_time" content="2023-12-22T03:41:50.174Z">
+<meta property="article:modified_time" content="2023-12-22T03:41:50.174Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -154,35 +154,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-高频率点赞业务开发" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-面试经典150题 H指数" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="高频率点赞业务开发"><a href="#高频率点赞业务开发" class="headerlink" title="高频率点赞业务开发"></a>高频率点赞业务开发</h2><h4 id="相关数据库表"><a href="#相关数据库表" class="headerlink" title="相关数据库表"></a>相关数据库表</h4><ol>
-<li><p>用户表 account  like_num字段</p>
-</li>
-<li><p>弹幕表 barrage like_num字段</p>
-</li>
-<li><p>评论表 comment like_num字段</p>
-</li>
-<li><p>动态表 dynamic like_num字段</p>
-</li>
-<li><p>视频表 video like_num字段</p>
-</li>
-<li><p>点赞表 。。。。。。</p>
-</li>
-</ol>
-<p>使用redis作为缓存来减少高频访问数据库造成的服务端压力。</p>
-<h3 id="总体思路"><a href="#总体思路" class="headerlink" title="总体思路"></a>总体思路</h3><ul>
-<li>前端针对高频操作进行防抖节流处理</li>
-<li>将用户高频操作造成数据的更改在redis进行处理，而采用定时将redis中相关数据写入对应数据库表来保证数据库数据可以得到及时更新。</li>
+        <h2 id="面试经典150题-H指数"><a href="#面试经典150题-H指数" class="headerlink" title="面试经典150题 H指数"></a>面试经典150题 H指数</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个整数数组 <code>citations</code> ，其中 <code>citations[i]</code> 表示研究者的第 <code>i</code> 篇论文被引用的次数。计算并返回该研究者的 <strong><code>h</code> 指数</strong>。</p>
+<p>根据维基百科上 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/h-index/3991452?fr=aladdin">h 指数的定义</a>：<code>h</code> 代表“高引用次数” ，一名科研人员的 <code>h</code> <strong>指数</strong> 是指他（她）至少发表了 <code>h</code> 篇论文，并且 <strong>至少</strong> 有 <code>h</code> 篇论文被引用次数大于等于 <code>h</code> 。如果 <code>h</code> 有多种可能的值，**<code>h</code> 指数** 是其中最大的那个。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：citations = [3,0,6,1,5]</span><br><span class="line">输出：3 </span><br><span class="line">解释：给定数组表示研究者总共有 5 篇论文，每篇论文相应的被引用了 3, 0, 6, 1, 5 次。</span><br><span class="line">     由于研究者有 3 篇论文每篇 至少 被引用了 3 次，其余两篇论文每篇被引用 不多于 3 次，所以她的 h 指数是 3。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：citations = [1,3,1]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>n == citations.length</code></li>
+<li><code>1 &lt;= n &lt;= 5000</code></li>
+<li><code>0 &lt;= citations[i] &lt;= 1000</code></li>
 </ul>
-<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><ul>
-<li>用户获取相关信息时，先查看redis中是否存在，若存在，直接返回，不存在，访问数据库，存入redis，返回</li>
-<li>对数据库相关的操作均在redis端实现</li>
-<li>定时同步redis与数据库数据</li>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先知道应该如何去得到正确的答案，通过给定的输入数值与输出数值可以总结出方法：</p>
+<ul>
+<li><p>对输入数组进行升序排序，我们可以轻松地发现对于数值中特定的某个数，若这个数的数值小于数值中比该数大的数的个数（即该数在数值中的位置到数值尾部的距离），这个数都可以作为h指数，那如何得到最大的h指数呢？—–&gt;直接顺序遍历数值，找到第一个不满足上述条件的值（边界值），它前面那个可能就是答案的H指数。</p>
+</li>
+<li><p>这一定是正确的情况吗？—-&gt;显而易见的是这肯定是不正确的，根据题意h指数不一定就在给定的citation输入数组中。 那什么情况下，h指数可以不在输入数值中呢，那一定是发生在边界值之后的情况，对于边界值：它的位置到数组底部的距离虽然比它本身小，但是它的位置到数组底部的距离也是可以满足h指数的要求的，而当这个值比数值中小于边界值的第一个数大，它也可以作为答案。</p>
+</li>
+<li><p>记得排除</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：citations = [0,0]</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
+
+<p> 这种情况，需要一个flag标志位</p>
+</li>
 </ul>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hIndex</span><span class="params">(<span class="type">int</span>[] citations)</span> &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> citations.length;</span><br><span class="line">            <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(len==<span class="number">1</span> &amp;&amp; citations[<span class="number">0</span>] == <span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(len == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            Arrays.sort(citations);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(citations[i]&gt;len-i)&#123;</span><br><span class="line">                    flag = <span class="literal">true</span>;</span><br><span class="line">                    index = i;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                ans = citations[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> flag == <span class="literal">true</span> ? Integer.max(ans,len-index) : ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -262,7 +268,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/10/26/%E9%AB%98%E9%A2%91%E7%8E%87%E7%82%B9%E8%B5%9E%E4%B8%9A%E5%8A%A1%E5%BC%80%E5%8F%91/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/12/22/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98%20H%E6%8C%87%E6%95%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -276,17 +282,8 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/10/27/LCR%20160.%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          (no title)
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/10/24/LCR%20159.%E5%BA%93%E5%AD%98%E7%AE%A1%E7%90%86/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2023/12/16/%E6%B7%BB%E5%8A%A0%E8%A7%86%E5%8A%9B%E7%BB%93%E6%9E%9C%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80%EF%BC%9A/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
