@@ -152,6 +152,97 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Js数组高阶函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>filter</code>、<code>map</code> 和 <code>reduce</code> 是 JavaScript 数组的常见高阶函数，它们用于对数组进行各种操作和转换。以下是它们的详细解释以及一些类似的方法：</p>
+<ol>
+<li><p><code>filter</code>：</p>
+<ul>
+<li><code>filter</code> 方法用于筛选数组中的元素，返回一个新的数组，新数组包含满足指定条件的原数组元素。</li>
+<li>它接受一个回调函数作为参数，该回调函数会对数组中的每个元素进行评估，如果回调函数返回 <code>true</code>，则该元素将被包含在新数组中，否则将被排除。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">const</span> evenNumbers = numbers.<span class="title function_">filter</span>(<span class="function"><span class="params">num</span> =&gt;</span> num % <span class="number">2</span> === <span class="number">0</span>)</span><br><span class="line"><span class="comment">// evenNumbers 现在包含 [2, 4]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>map</code>：</p>
+<ul>
+<li><code>map</code> 方法用于对数组中的每个元素执行指定的操作，返回一个新的数组，新数组包含对每个元素应用操作后的结果。</li>
+<li>它接受一个回调函数作为参数，该回调函数会对数组中的每个元素进行操作，并将结果存储在新数组中。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">const</span> squaredNumbers = numbers.<span class="title function_">map</span>(<span class="function"><span class="params">num</span> =&gt;</span> num * num)</span><br><span class="line"><span class="comment">// squaredNumbers 现在包含 [1, 4, 9, 16, 25]</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>reduce</code>：</p>
+<ul>
+<li><code>reduce</code> 方法用于将数组中的元素累积到一个单一的值中，通过提供一个累积函数来实现。</li>
+<li>累积函数接受一个累积值和当前元素，并返回更新后的累积值。<code>reduce</code> 还可以接受一个可选的初始值作为累积值的起始值。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">const</span> sum = numbers.<span class="title function_">reduce</span>(<span class="function">(<span class="params">accumulator, currentValue</span>) =&gt;</span> accumulator + currentValue, <span class="number">0</span>)</span><br><span class="line"><span class="comment">// sum 现在包含 15</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>类似的方法还有：</p>
+<ol start="4">
+<li><p><code>forEach</code>：</p>
+<ul>
+<li><code>forEach</code> 方法用于对数组中的每个元素执行指定的操作，但它不会创建新数组，而是直接对原数组进行操作。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line">numbers.<span class="title function_">forEach</span>(<span class="function"><span class="params">num</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(num * <span class="number">2</span>))</span><br><span class="line"><span class="comment">// 直接输出 2, 4, 6, 8, 10</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>some</code> 和 <code>every</code>：</p>
+<ul>
+<li><code>some</code> 方法用于检查数组中是否至少有一个元素满足指定条件，返回 <code>true</code> 或 <code>false</code>。</li>
+<li><code>every</code> 方法用于检查数组中是否所有元素都满足指定条件，返回 <code>true</code> 或 <code>false</code>。</li>
+</ul>
+<p>示例：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> numbers = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>]</span><br><span class="line"><span class="keyword">const</span> hasEvenNumber = numbers.<span class="title function_">some</span>(<span class="function"><span class="params">num</span> =&gt;</span> num % <span class="number">2</span> === <span class="number">0</span>) <span class="comment">// 返回 true</span></span><br><span class="line"><span class="keyword">const</span> allEvenNumbers = numbers.<span class="title function_">every</span>(<span class="function"><span class="params">num</span> =&gt;</span> num % <span class="number">2</span> === <span class="number">0</span>) <span class="comment">// 返回 false</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>这些高阶函数使数组操作更加方便和函数式，它们可以用于各种数据转换和筛选操作，提高了代码的可读性和可维护性。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/09/16/Js%E6%95%B0%E7%BB%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-flex布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1326,78 +1417,9 @@
 
 
   
-    <article id="post-每日一题 剑指Offer32 从上到下打印二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer32-从上到下打印二叉树"><a href="#每日一题-剑指Offer32-从上到下打印二叉树" class="headerlink" title="每日一题 剑指Offer32 从上到下打印二叉树"></a>每日一题 剑指Offer32 从上到下打印二叉树</h2><p>2023&#x2F;8&#x2F;26</p>
-<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202308262003600.jpg" alt="nagisa" style="zoom:25%;" />
-
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>从上到下打印出二叉树的每个节点，同一层的节点按照从左到右的顺序打印。</p>
-<p>例如:<br>给定二叉树: <code>[3,9,20,null,null,15,7]</code>,</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> / \</span><br><span class="line">9  20</span><br><span class="line">  /  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure>
-
-<p>返回：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[3,9,20,15,7]</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ol>
-<li><code>节点总数 &lt;= 1000</code></li>
-</ol>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>使用队列老老实实层序遍历二叉树</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] levelOrder(TreeNode root) &#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">null</span>) <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>];</span><br><span class="line">        Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>();</span><br><span class="line">        List&lt;Integer&gt; ans = <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">        queue.add(root);</span><br><span class="line">        <span class="keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">            TreeNode tmp=queue.poll();</span><br><span class="line">            ans.add(tmp.val);</span><br><span class="line">            <span class="keyword">if</span>(tmp.left!=<span class="literal">null</span>) queue.add(tmp.left);    </span><br><span class="line">            <span class="keyword">if</span>(tmp.right!=<span class="literal">null</span>) queue.add(tmp.right);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> [] result =<span class="keyword">new</span> <span class="title class_">int</span>[ans.size()];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;ans.size();i++)&#123;</span><br><span class="line">            result[i]=ans.get(i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/26/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer32%20%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
+      <a class="extend prev" rel="prev" href="/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next &amp;raquo;</a>
     </nav>
   
 
