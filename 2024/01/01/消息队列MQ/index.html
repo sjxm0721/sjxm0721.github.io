@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | Hexo</title>
+  <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="消息队列MQ大型分布式系统、高并发系统的基石中间件生产者、MQ服务器、消费者应用场景与目的：实现业务之间的解耦、异步、削峰填谷的作用 消息队列的主要特点是异步处理，主要目的是减少请求响应时间，实现非核心流程异步化，提高系统响应时间  典型处理非核心业务异步化：将比较耗时并且不需要即时（同步）返回结果的操作，通过消息队列来实现异步化应用解耦：消息接收方与消息发送方仅通过消息队列建立连接，而非直接调用">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/page/6/index.html">
+<meta property="og:url" content="http://example.com/2024/01/01/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97MQ/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="消息队列MQ大型分布式系统、高并发系统的基石中间件生产者、MQ服务器、消费者应用场景与目的：实现业务之间的解耦、异步、削峰填谷的作用 消息队列的主要特点是异步处理，主要目的是减少请求响应时间，实现非核心流程异步化，提高系统响应时间  典型处理非核心业务异步化：将比较耗时并且不需要即时（同步）返回结果的操作，通过消息队列来实现异步化应用解耦：消息接收方与消息发送方仅通过消息队列建立连接，而非直接调用">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-01T02:34:16.135Z">
+<meta property="article:modified_time" content="2024-01-01T02:34:16.135Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,67 +154,142 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-消息队列MQ" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="消息队列MQ"><a href="#消息队列MQ" class="headerlink" title="消息队列MQ"></a>消息队列MQ</h2><h4 id="大型分布式系统、高并发系统的基石中间件"><a href="#大型分布式系统、高并发系统的基石中间件" class="headerlink" title="大型分布式系统、高并发系统的基石中间件"></a>大型分布式系统、高并发系统的基石中间件</h4><h4 id="生产者、MQ服务器、消费者"><a href="#生产者、MQ服务器、消费者" class="headerlink" title="生产者、MQ服务器、消费者"></a>生产者、MQ服务器、消费者</h4><h4 id="应用场景与目的：实现业务之间的解耦、异步、削峰填谷的作用"><a href="#应用场景与目的：实现业务之间的解耦、异步、削峰填谷的作用" class="headerlink" title="应用场景与目的：实现业务之间的解耦、异步、削峰填谷的作用"></a>应用场景与目的：实现业务之间的<span style="color:red">解耦、异步、削峰填谷</span>的作用</h4><blockquote>
+<p>消息队列的主要特点是<strong>异步处理</strong>，主要目的是减少请求响应时间，实现<strong>非核心流程</strong>异步化，提高系统响应时间</p>
+</blockquote>
+<h3 id="典型处理"><a href="#典型处理" class="headerlink" title="典型处理"></a>典型处理</h3><h4 id="非核心业务异步化：将比较耗时并且不需要即时（同步）返回结果的操作，通过消息队列来实现异步化"><a href="#非核心业务异步化：将比较耗时并且不需要即时（同步）返回结果的操作，通过消息队列来实现异步化" class="headerlink" title="非核心业务异步化：将比较耗时并且不需要即时（同步）返回结果的操作，通过消息队列来实现异步化"></a>非核心业务异步化：将比较耗时并且不需要即时（同步）返回结果的操作，通过消息队列来实现异步化</h4><h4 id="应用解耦：消息接收方与消息发送方仅通过消息队列建立连接，而非直接调用，进行了应用的解耦"><a href="#应用解耦：消息接收方与消息发送方仅通过消息队列建立连接，而非直接调用，进行了应用的解耦" class="headerlink" title="应用解耦：消息接收方与消息发送方仅通过消息队列建立连接，而非直接调用，进行了应用的解耦"></a>应用解耦：消息接收方与消息发送方仅通过消息队列建立连接，而非直接调用，进行了应用的解耦</h4><h4 id="流量削峰：防止系统被短时间内的峰值流量冲垮，使用消息队列来削弱流量峰值，相当于消息队列做了一次缓冲"><a href="#流量削峰：防止系统被短时间内的峰值流量冲垮，使用消息队列来削弱流量峰值，相当于消息队列做了一次缓冲" class="headerlink" title="流量削峰：防止系统被短时间内的峰值流量冲垮，使用消息队列来削弱流量峰值，相当于消息队列做了一次缓冲"></a>流量削峰：防止系统被短时间内的峰值流量冲垮，使用消息队列来削弱流量峰值，相当于消息队列做了一次缓冲</h4>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/25/%E5%89%91%E6%8C%87offer%20%20%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%2003.%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/" class="archive-article-date">
-  	<time datetime="2023-07-25T03:41:20.773Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-25</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/01/01/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97MQ/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/07/24/%E5%89%91%E6%8C%87offer%20II%20%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20001%20%E6%95%B4%E6%95%B0%E9%99%A4%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2023-07-24T14:25:32.380Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-24</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2023/12/26/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98%20%E5%88%86%E5%8F%91%E7%B3%96%E6%9E%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+        
+    </div>
+</aside>
+
+
+
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/4/">4</a><a class="page-number" href="/archives/page/5/">5</a><span class="page-number current">6</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -234,8 +313,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

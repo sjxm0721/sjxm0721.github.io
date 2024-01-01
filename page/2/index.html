@@ -152,6 +152,78 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-WebSocket" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h2><h3 id="1-什么是WebSocket"><a href="#1-什么是WebSocket" class="headerlink" title="1.什么是WebSocket"></a>1.什么是WebSocket</h3><p>WebSocket是一种在单个TCP连接上进行<strong>全双工</strong>通信的协议。</p>
+<p>WebSocket使得客户端和服务器之间的数据交换变得更加简单，<strong>允许服务端主动向客户端推送数据</strong>，在WebSocket中，浏览器和服务器只需要<strong>完成一次握手</strong>，两者之间就可以<strong>创建持久性的连接</strong>，并进行<strong>双向数据传输</strong>。</p>
+<h3 id="2-为什么使用WebSocket"><a href="#2-为什么使用WebSocket" class="headerlink" title="2. 为什么使用WebSocket"></a>2. 为什么使用WebSocket</h3><p>传统的HTTP协议具有<strong>无状态</strong>的特性，每次请求都只能由客户端主动发起，服务端则是被动地处理后返回response结果，难以实现服务端主动向客户端发送数据，这种传统的Web模式很难完成带有高实时性功能的应用，例如：即时通信、实时数据、订阅推送等。</p>
+<p>针对以上的问题，开服人员以前一般采用<strong>轮询</strong>和<strong>Comet</strong>技术，但以上两种方法都不是真正意义上的实时技术，本质上还是基于<strong>传统Web的请求-应答模式</strong>，还会大量消耗服务器的资源。</p>
+<p>H5推出的<em><strong>WebSocket</strong></em>技术，才是真正意义的实时通信技术。</p>
+<h3 id="3-WebSocket的工作流程"><a href="#3-WebSocket的工作流程" class="headerlink" title="3.WebSocket的工作流程"></a>3.WebSocket的工作流程</h3><p>浏览器通过JavaScript向服务端发出建立WebSocket连接的请求，在WebSocket连接建立成功后，客户端和服务端就可以通过 TCP连接传输数据。因为WebSocket连接本质上是TCP连接，不需要每次传输都带上重复的头部数据，所以它的数据传输量比轮询和Comet技术小了很多。<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202310141756772.png" alt="websocket"  /></p>
+<h3 id="Vue3中使用WebSocket"><a href="#Vue3中使用WebSocket" class="headerlink" title="Vue3中使用WebSocket"></a>Vue3中使用WebSocket</h3><ol>
+<li>封装websocket类</li>
+</ol>
+<p>新建websocket.js文件，其中定义一个Websocket类：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">WebSocket</span> <span class="keyword">from</span> <span class="string">&#x27;ws&#x27;</span>;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Websocket</span> </span><br><span class="line">&#123;</span><br><span class="line">  <span class="title function_">constructor</span>(<span class="params">url, options = &#123;&#125;</span>) </span><br><span class="line">  &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">url</span> = url;<span class="variable language_">this</span>.<span class="property">options</span> = options;<span class="variable language_">this</span>.<span class="property">ws</span> = <span class="literal">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">connect</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">ws</span> = <span class="keyword">new</span> <span class="title class_">WebSocket</span>(<span class="variable language_">this</span>.<span class="property">url</span>, <span class="variable language_">this</span>.<span class="property">options</span>);</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">ws</span>.<span class="property">onopen</span> = <span class="function">() =&gt;</span> </span><br><span class="line">    &#123;<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Websocket connection opened.&#x27;</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">ws</span>.<span class="property">onmessage</span> = <span class="function">(<span class="params">event</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Websocket message received.&#x27;</span>, event.<span class="property">data</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">ws</span>.<span class="property">onerror</span> = <span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Websocket error occurred.&#x27;</span>, error);</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">ws</span>.<span class="property">onclose</span> = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;Websocket connection closed.&#x27;</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">send</span>(<span class="params">data</span>) </span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">ws</span>.<span class="property">readyState</span> === <span class="title class_">WebSocket</span>.<span class="property">OPEN</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">ws</span>.<span class="title function_">send</span>(data);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Websocket connection not open.&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="title function_">close</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">ws</span>.<span class="title function_">close</span>();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">Websocket</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>封装websocket插件，方便全局使用：</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Websocket</span> <span class="keyword">from</span> <span class="string">&#x27;./websocket.js&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="title class_">MyPlugin</span> = &#123;</span><br><span class="line">  <span class="title function_">install</span>(<span class="params">Vue</span>) &#123;</span><br><span class="line">    <span class="title class_">Vue</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">$websocket</span> = <span class="keyword">new</span> <span class="title class_">Websocket</span>(<span class="string">&#x27;ws://localhost:8080&#x27;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="title class_">MyPlugin</span>;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在main.js中使用Vue.use方法来使用插件</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createApp &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">MyPlugin</span> <span class="keyword">from</span> <span class="string">&#x27;./my-plugin.js&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> app = <span class="title function_">createApp</span>(<span class="title class_">App</span>);</span><br><span class="line">app.<span class="title function_">use</span>(<span class="title class_">MyPlugin</span>);</span><br><span class="line">app.<span class="title function_">mount</span>(<span class="string">&#x27;#app&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<p>通过以上方法我们就可以在Vue3组件中使用websocket对象了</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="title function_">mounted</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">$websocket</span>.<span class="title function_">connect</span>();</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="title function_">sendMessage</span>(<span class="params">message</span>) &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">$websocket</span>.<span class="title function_">send</span>(message);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/10/14/WebSocket/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Js数组高阶函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1317,77 +1389,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/08/28/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer32%20%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91III/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer32 从上到下打印二叉树II" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer32-从上到下打印二叉树II"><a href="#每日一题-剑指Offer32-从上到下打印二叉树II" class="headerlink" title="每日一题 剑指Offer32 从上到下打印二叉树II"></a>每日一题 剑指Offer32 从上到下打印二叉树II</h2><img src="/Users/sijixiamu/Pictures/xcw.jpg" alt="xcw" style="zoom:25%;" />
-
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>从上到下按层打印二叉树，同一层的节点按从左到右的顺序打印，每一层打印到一行。</p>
-<p>例如:<br>给定二叉树: <code>[3,9,20,null,null,15,7]</code>,</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  3</span><br><span class="line"> / \</span><br><span class="line">9  20</span><br><span class="line">  /  \</span><br><span class="line"> 15   7</span><br></pre></td></tr></table></figure>
-
-<p>返回其层次遍历结果：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  [3],</span><br><span class="line">  [9,20],</span><br><span class="line">  [15,7]</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ol>
-<li><code>节点总数 &lt;= 1000</code></li>
-</ol>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li><p>与单纯层序遍历二叉树类似，就是需要判断当前节点属于第几层即可，由于<em><strong>同一个while循环中的节点都属于同一层</strong></em>，我们只需要在进入while循环是用一个变量存储当前队列长度再for循环加入子节点即可。</p>
-</li>
-<li><p>一定要用变量存储队列长度，因为在我们poll出队列元素的时候队列长度是会发生动态变化的。</p>
-</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; <span class="title function_">levelOrder</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">        Queue&lt;TreeNode&gt; queue = <span class="keyword">new</span> <span class="title class_">LinkedList</span>&lt;&gt;();</span><br><span class="line">        List&lt;List&lt;Integer&gt;&gt; ans = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">if</span>(root!=<span class="literal">null</span>) queue.add(root);</span><br><span class="line">        <span class="keyword">while</span>(!queue.isEmpty())&#123;</span><br><span class="line">            List&lt;Integer&gt; tmp = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">            <span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> queue.size();</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;size;i++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">TreeNode</span> <span class="variable">node</span> <span class="operator">=</span> queue.poll();</span><br><span class="line">                tmp.add(node.val);</span><br><span class="line">                <span class="keyword">if</span>(node.left!=<span class="literal">null</span>) queue.add(node.left);</span><br><span class="line">                <span class="keyword">if</span>(node.right!=<span class="literal">null</span>) queue.add(node.right);</span><br><span class="line">            &#125;</span><br><span class="line">            ans.add(tmp);</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/27/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer32%20%E4%BB%8E%E4%B8%8A%E5%88%B0%E4%B8%8B%E6%89%93%E5%8D%B0%E4%BA%8C%E5%8F%89%E6%A0%91II/">展开全文 >></a>
         </p>
       
 
