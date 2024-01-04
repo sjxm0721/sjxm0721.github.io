@@ -152,6 +152,77 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-每日一题 剑指Offer 14. 剪绳子" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="每日一题-剑指Offer-14-剪绳子"><a href="#每日一题-剑指Offer-14-剪绳子" class="headerlink" title="每日一题 剑指Offer 14. 剪绳子"></a>每日一题 剑指Offer 14. 剪绳子</h2><p>妈！！！<img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308062026240.jpg" alt="mather" style="zoom:50%;" /></p>
+<hr>
+<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一根长度为 <code>n</code> 的绳子，请把绳子剪成整数长度的 <code>m</code> 段（m、n都是整数，n&gt;1并且m&gt;1），每段绳子的长度记为 <code>k[0],k[1]...k[m-1]</code> 。请问 <code>k[0]*k[1]*...*k[m-1]</code> 可能的最大乘积是多少？例如，当绳子的长度是8时，我们把它剪成长度分别为2、3、3的三段，此时得到的最大乘积是18。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 2</span><br><span class="line">输出: 1</span><br><span class="line">解释: 2 = 1 + 1, 1 × 1 = 1</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: 10</span><br><span class="line">输出: 36</span><br><span class="line">解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>2 &lt;= n &lt;= 58</code></li>
+</ul>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>这题有一种单纯数学的做法，很简单。</li>
+<li>首先，我们考虑一个特殊的数：<em><strong>4</strong></em>，我们把<em><strong>4</strong></em>这个数按题意进行拆分，分成乘积最大的两部分：<strong>2</strong>和<strong>2</strong>，此时刚好有2x2&#x3D;&#x3D;2+2，我们不难发现<em><strong>4</strong></em>这个数起到了分割作用，大于4的数拆分后最大乘积大于该数本身，小于4的数拆分最大乘积小于该数本身。这也就意味着我们的拆分结果中就一定不能出现大于等于4的数，不然我们通过把它拆分一定会得到更大的结果（也可能相同）。</li>
+<li>所以对给出的一个数，我们尽可能得把它拆分成3得到的结果一定是最大的，之后我们再根据余数进行分类讨论就能ac</li>
+</ul>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">cuttingRope</span><span class="params">(<span class="type">int</span> n)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(n&lt;=<span class="number">3</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> n-<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">mod</span> <span class="operator">=</span> n % <span class="number">3</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">div</span> <span class="operator">=</span> n / <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">if</span>(mod == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="type">int</span>) Math.pow(<span class="number">3</span>,div);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(mod == <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="type">int</span>) Math.pow(<span class="number">3</span>,div-<span class="number">1</span>)*<span class="number">4</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> (<span class="type">int</span>) Math.pow(<span class="number">3</span>,div)*<span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/08/06/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer%2014.%20%E5%89%AA%E7%BB%B3%E5%AD%90/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-每日一题 剑指Offer 13. 机器人的运动范围" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -800,68 +871,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/07/27/%E5%89%91%E6%8C%87offer%20%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%2005.%E6%9B%BF%E6%8D%A2%E7%A9%BA%E6%A0%BC/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-剑指offer 每日一题 04.二维数组中的查找" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="剑指offer-每日一题-04-二维数组中的查找"><a href="#剑指offer-每日一题-04-二维数组中的查找" class="headerlink" title="剑指offer 每日一题 04.二维数组中的查找"></a>剑指offer 每日一题 04.二维数组中的查找</h2><hr>
-<p><img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202307271007734.jpg" alt="202307262131004"></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>在一个 n * m 的二维数组中，每一行都按照从左到右 非递减 的顺序排序，每一列都按照从上到下 非递减 的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
-<p>示例:现有矩阵 matrix 如下：</p>
-<p>[<br>  [1,   4,  7, 11, 15],<br>  [2,   5,  8, 12, 19],<br>  [3,   6,  9, 16, 22],<br>  [10, 13, 14, 17, 24],<br>  [18, 21, 23, 26, 30]<br>]<br>给定 target &#x3D; 5，返回 true。</p>
-<p>给定 target &#x3D; 20，返回 false。 </p>
-<p>限制：</p>
-<p>0 &lt;&#x3D; n &lt;&#x3D; 1000</p>
-<p>0 &lt;&#x3D; m &lt;&#x3D; 1000</p>
-<hr>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>由于该二维矩阵为x轴递增与y轴递增，所以在一个矩阵中，*** 最小的值一定位于左上角，最大的值一定位于右下角<em><strong>，所以如果target大于某一个值，</strong>那么就一定大于以这个值作为右下角的所有矩阵</em>*，如果target小于某一个值，<strong>那么就一定小于以这个值作为左上角的所有矩阵</strong>。</p>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">findNumberIn2DArray</span><span class="params">(<span class="type">int</span>[][] matrix, <span class="type">int</span> target)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix.length==<span class="number">0</span>||matrix==<span class="literal">null</span>)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> matrix.length, m = matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="type">int</span> x=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> y=m-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(x&lt;n&amp;&amp;y&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(matrix[x][y]==target)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(matrix[x][y]&gt;target)&#123;</span><br><span class="line">                y--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> x++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/07/26/%E5%89%91%E6%8C%87offer%20%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%2004.%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E6%9F%A5%E6%89%BE/">展开全文 >></a>
         </p>
       
 
