@@ -152,6 +152,88 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-面试经典150题 68.文本左右对齐" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="面试经典150题-68-文本左右对齐"><a href="#面试经典150题-68-文本左右对齐" class="headerlink" title="面试经典150题 68.文本左右对齐"></a>面试经典150题 68.文本左右对齐</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个单词数组 <code>words</code> 和一个长度 <code>maxWidth</code> ，重新排版单词，使其成为每行恰好有 <code>maxWidth</code> 个字符，且左右两端对齐的文本。</p>
+<p>你应该使用 “<strong>贪心算法</strong>” 来放置给定的单词；也就是说，尽可能多地往每行中放置单词。必要时可用空格 <code>&#39; &#39;</code> 填充，使得每行恰好有 <em>maxWidth</em> 个字符。</p>
+<p>要求尽可能均匀分配单词间的空格数量。如果某一行单词间的空格不能均匀分配，则左侧放置的空格数要多于右侧的空格数。</p>
+<p>文本的最后一行应为左对齐，且单词之间不插入<strong>额外的</strong>空格。</p>
+<p><strong>注意:</strong></p>
+<ul>
+<li>单词是指由非空格字符组成的字符序列。</li>
+<li>每个单词的长度大于 0，小于等于 <em>maxWidth</em>。</li>
+<li>输入单词数组 <code>words</code> 至少包含一个单词。</li>
+</ul>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入:words = [&quot;This&quot;, &quot;is&quot;, &quot;an&quot;, &quot;example&quot;, &quot;of&quot;, &quot;text&quot;, &quot;justification.&quot;], maxWidth = 16</span><br><span class="line">输出:[</span><br><span class="line">   &quot;This    is    an&quot;,</span><br><span class="line">   &quot;example  of text&quot;,</span><br><span class="line">   &quot;justification.  &quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入:words = [&quot;What&quot;,&quot;must&quot;,&quot;be&quot;,&quot;acknowledgment&quot;,&quot;shall&quot;,&quot;be&quot;], maxWidth = 16</span><br><span class="line">输出:[</span><br><span class="line">  &quot;What   must   be&quot;,</span><br><span class="line">  &quot;acknowledgment  &quot;,</span><br><span class="line">  &quot;shall be        &quot;</span><br><span class="line">]</span><br><span class="line">解释:注意最后一行的格式应为 &quot;shall be    &quot; 而不是 &quot;shall     be&quot;,</span><br><span class="line">     因为最后一行应为左对齐，而不是左右两端对齐。       </span><br><span class="line">     第二行同样为左对齐，这是因为这行只包含一个单词。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3:</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入:words = [&quot;Science&quot;,&quot;is&quot;,&quot;what&quot;,&quot;we&quot;,&quot;understand&quot;,&quot;well&quot;,&quot;enough&quot;,&quot;to&quot;,&quot;explain&quot;,&quot;to&quot;,&quot;a&quot;,&quot;computer.&quot;,&quot;Art&quot;,&quot;is&quot;,&quot;everything&quot;,&quot;else&quot;,&quot;we&quot;,&quot;do&quot;]，maxWidth = 20</span><br><span class="line">输出:[</span><br><span class="line">  &quot;Science  is  what we&quot;,</span><br><span class="line">  &quot;understand      well&quot;,</span><br><span class="line">  &quot;enough to explain to&quot;,</span><br><span class="line">  &quot;a  computer.  Art is&quot;,</span><br><span class="line">  &quot;everything  else  we&quot;,</span><br><span class="line">  &quot;do                  &quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示:</strong></p>
+<ul>
+<li><code>1 &lt;= words.length &lt;= 300</code></li>
+<li><code>1 &lt;= words[i].length &lt;= 20</code></li>
+<li><code>words[i]</code> 由小写英文字母和符号组成</li>
+<li><code>1 &lt;= maxWidth &lt;= 100</code></li>
+<li><code>words[i].length &lt;= maxWidth</code></li>
+</ul>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>纯模拟题，先贪心算出每行能放置多少个字符串，长度溢出去除掉一个字符串即可。</li>
+<li>对贪心得到的字符串进行处理，需要计算出字符串左右空格的个数</li>
+</ul>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">       <span class="keyword">public</span> List&lt;String&gt; <span class="title function_">fullJustify</span><span class="params">(String[] words, <span class="type">int</span> maxWidth)</span> &#123;</span><br><span class="line">           <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> words.length;</span><br><span class="line">           <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span><span class="number">0</span>;</span><br><span class="line">           List&lt;String&gt; ans = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">           <span class="type">StringBuilder</span> <span class="variable">stringTmp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">           <span class="type">int</span> nowLen;</span><br><span class="line">           <span class="type">int</span> newLen;</span><br><span class="line">           <span class="type">int</span> <span class="variable">wordsNum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">           <span class="keyword">while</span>(i&lt;len)&#123;</span><br><span class="line">               nowLen = stringTmp.length();</span><br><span class="line">               <span class="keyword">if</span>(nowLen == <span class="number">0</span>)&#123;</span><br><span class="line">                   stringTmp.append(words[i]);</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">else</span>&#123;</span><br><span class="line">                   stringTmp.append(<span class="string">&quot; &quot;</span>).append(words[i]);</span><br><span class="line">               &#125;</span><br><span class="line">               newLen = stringTmp.length();</span><br><span class="line">               i++;</span><br><span class="line">               wordsNum++;</span><br><span class="line">               <span class="keyword">if</span>(newLen&gt;maxWidth)&#123;</span><br><span class="line">                   <span class="comment">//长度超出 还原并处理字符串</span></span><br><span class="line">                   i--;</span><br><span class="line">                   wordsNum--;</span><br><span class="line">                   <span class="type">String</span> <span class="variable">substring</span> <span class="operator">=</span> stringTmp.substring(<span class="number">0</span>, nowLen);</span><br><span class="line">                   <span class="comment">//处理substring</span></span><br><span class="line">                   <span class="type">int</span> <span class="variable">blanksNum</span> <span class="operator">=</span> wordsNum-<span class="number">1</span>;</span><br><span class="line">                   <span class="type">int</span> addBlank;</span><br><span class="line">                   <span class="type">int</span> extraBlank;</span><br><span class="line">                   String[] s = substring.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">                   <span class="type">StringBuilder</span> <span class="variable">stringBuilderTmp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">                   <span class="keyword">if</span>(blanksNum !=<span class="number">0</span>)&#123;</span><br><span class="line">                       addBlank = ((maxWidth - substring.length())/blanksNum)+<span class="number">1</span>;</span><br><span class="line">                       extraBlank = (maxWidth-substring.length())%blanksNum;</span><br><span class="line">                       <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;s.length-<span class="number">1</span>;j++) &#123;</span><br><span class="line">                           stringBuilderTmp.append(s[j]);</span><br><span class="line">                           <span class="keyword">if</span>(j&lt;extraBlank)&#123;</span><br><span class="line">                               stringBuilderTmp.append(<span class="string">&quot; &quot;</span>.repeat(Math.max(<span class="number">0</span>, addBlank + <span class="number">1</span>)));</span><br><span class="line">                           &#125;</span><br><span class="line">                           <span class="keyword">else</span>&#123;</span><br><span class="line">                               stringBuilderTmp.append(<span class="string">&quot; &quot;</span>.repeat(Math.max(<span class="number">0</span>, addBlank)));</span><br><span class="line">                           &#125;</span><br><span class="line">                       &#125;</span><br><span class="line">                       stringBuilderTmp.append(s[s.length-<span class="number">1</span>]);</span><br><span class="line">                   &#125;</span><br><span class="line">                   <span class="keyword">else</span>&#123;</span><br><span class="line">                       addBlank = maxWidth - substring.length();</span><br><span class="line">                       stringBuilderTmp.append(s[<span class="number">0</span>]).append(<span class="string">&quot; &quot;</span>.repeat(Math.max(<span class="number">0</span>,addBlank)));</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line">                   ans.add(stringBuilderTmp.toString());</span><br><span class="line">                   stringTmp = <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">                   wordsNum = <span class="number">0</span>;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           stringTmp.append(<span class="string">&quot; &quot;</span>.repeat(Math.max(<span class="number">0</span>,maxWidth-stringTmp.length())));</span><br><span class="line">           ans.add(stringTmp.toString());</span><br><span class="line">           <span class="keyword">return</span> ans;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/01/05/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98%2068.%E6%96%87%E6%9C%AC%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-面试经典150题 找出字符串中第一个匹配项的下标" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -773,83 +855,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/12/11/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98%20%20%20%20%E5%A4%9A%E6%95%B0%E5%85%83%E7%B4%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LCR 160.数据流中的中位数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="LCR-160-数据流中的中位数"><a href="#LCR-160-数据流中的中位数" class="headerlink" title="LCR 160.数据流中的中位数"></a>LCR 160.数据流中的中位数</h2><img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202310272020062.jpg" alt="tkk" style="zoom:33%;" />
-
-
-
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><hr>
-<p><strong>中位数</strong> 是有序整数列表中的中间值。如果列表的大小是偶数，则没有中间值，中位数是两个中间值的平均值。</p>
-<p>例如，</p>
-<p><code>[2,3,4]</code> 的中位数是 <code>3</code><br><code>[2,3]</code> 的中位数是 <code>(2 + 3) / 2 = 2.5</code><br>设计一个支持以下两种操作的数据结构：</p>
-<ul>
-<li><code>void addNum(int num)</code> - 从数据流中添加一个整数到数据结构中。</li>
-<li><code>double findMedian()</code> - 返回目前所有元素的中位数。</li>
-</ul>
-<p>**示例 1： **</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">[&quot;MedianFinder&quot;,&quot;addNum&quot;,&quot;addNum&quot;,&quot;findMedian&quot;,&quot;addNum&quot;,&quot;findMedian&quot;]</span><br><span class="line">[[],[1],[2],[],[3],[]]</span><br><span class="line">输出：[null,null,null,1.50000,null,2.00000]</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong> </p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">[&quot;MedianFinder&quot;,&quot;addNum&quot;,&quot;findMedian&quot;,&quot;addNum&quot;,&quot;findMedian&quot;]</span><br><span class="line">[[],[2],[],[3],[]]</span><br><span class="line">输出：[null,null,2.00000,null,2.50000]</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong> </p>
-<ul>
-<li>最多会对 <code>addNum、findMedian</code> 进行 <code>50000</code> 次调用。</li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>求一个随时变化的数组的中位数，可以使用两个优先队列，一个为大顶堆，另一个为小顶堆。两边各存放数组中一般的元素，我们通过判断将元素放入大顶堆与小顶堆中，大顶堆存放较小的一半元素，小顶堆存放较大的一半元素，它们内部帮我们对元素进行排序，之后通过两个堆堆顶的元素我们就可以得到中位数。</li>
-<li>注意需要根据奇偶分类进行讨论。</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MedianFinder</span> &#123;</span><br><span class="line"></span><br><span class="line">    PriorityQueue&lt;Integer&gt; queueSmall,queueBig;</span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MedianFinder</span><span class="params">()</span> &#123;</span><br><span class="line">        queueSmall = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;Integer&gt;();<span class="comment">//小顶堆</span></span><br><span class="line">        queueBig = <span class="keyword">new</span> <span class="title class_">PriorityQueue</span>&lt;Integer&gt;(<span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Integer&gt;()&#123;</span><br><span class="line">            <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Integer num1,Integer num2)</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> num2-num1;<span class="comment">//大顶堆</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addNum</span><span class="params">(<span class="type">int</span> num)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(queueSmall.size()!=queueBig.size())&#123;</span><br><span class="line">            queueSmall.add(num);</span><br><span class="line">            queueBig.add(queueSmall.poll());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            queueBig.add(num);</span><br><span class="line">            queueSmall.add(queueBig.poll());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">findMedian</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> queueSmall.size() == queueBig.size() ? (queueBig.peek()+queueSmall.peek())/<span class="number">2.0</span>:queueSmall.peek();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/10/27/LCR%20160.%E6%95%B0%E6%8D%AE%E6%B5%81%E4%B8%AD%E7%9A%84%E4%B8%AD%E4%BD%8D%E6%95%B0/">展开全文 >></a>
         </p>
       
 
