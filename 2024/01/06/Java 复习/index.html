@@ -8,17 +8,24 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="面试经典150题 68.文本左右对齐题目给定一个单词数组 words 和一个长度 maxWidth ，重新排版单词，使其成为每行恰好有 maxWidth 个字符，且左右两端对齐的文本。 你应该使用 “贪心算法” 来放置给定的单词；也就是说，尽可能多地往每行中放置单词。必要时可用空格 &#39; &#39; 填充，使得每行恰好有 maxWidth 个字符。 要求尽可能均匀分配单词间的空格数量。如果某">
+  <meta name="description" content="Java 复习 重载的概念：在同一个类中，允许存在一个以上的同名方法，只要它们的参数个数或者参数类型不同即可，与返回类型无关，只看参数列表  重写的概念：Override，子类中国出现与父类一模一样的方法时（返回值类型，方法名和参数列表都相同）,会出现覆盖效果，也称为重写或者复写  多态：对象向上转型    父类 &#x3D; new 子类 只有方法具有多态性，成员变量没有多态性     高层模块">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/2024/01/05/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98%2068.%E6%96%87%E6%9C%AC%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90/index.html">
+<meta property="og:url" content="http://example.com/2024/01/06/Java%20%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="面试经典150题 68.文本左右对齐题目给定一个单词数组 words 和一个长度 maxWidth ，重新排版单词，使其成为每行恰好有 maxWidth 个字符，且左右两端对齐的文本。 你应该使用 “贪心算法” 来放置给定的单词；也就是说，尽可能多地往每行中放置单词。必要时可用空格 &#39; &#39; 填充，使得每行恰好有 maxWidth 个字符。 要求尽可能均匀分配单词间的空格数量。如果某">
+<meta property="og:description" content="Java 复习 重载的概念：在同一个类中，允许存在一个以上的同名方法，只要它们的参数个数或者参数类型不同即可，与返回类型无关，只看参数列表  重写的概念：Override，子类中国出现与父类一模一样的方法时（返回值类型，方法名和参数列表都相同）,会出现覆盖效果，也称为重写或者复写  多态：对象向上转型    父类 &#x3D; new 子类 只有方法具有多态性，成员变量没有多态性     高层模块">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-01-05T02:58:19.220Z">
-<meta property="article:modified_time" content="2024-01-05T03:01:39.442Z">
+<meta property="og:image" content="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401071050524.png">
+<meta property="og:image" content="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401081151966.png">
+<meta property="og:image" content="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401101003390.png">
+<meta property="og:image" content="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401101007482.png">
+<meta property="og:image" content="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401101040607.png">
+<meta property="og:image" content="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401101047613.png">
+<meta property="article:published_time" content="2024-01-06T13:24:12.641Z">
+<meta property="article:modified_time" content="2024-01-10T02:52:18.865Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401071050524.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -154,47 +161,121 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-面试经典150题 68.文本左右对齐" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Java 复习" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="面试经典150题-68-文本左右对齐"><a href="#面试经典150题-68-文本左右对齐" class="headerlink" title="面试经典150题 68.文本左右对齐"></a>面试经典150题 68.文本左右对齐</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个单词数组 <code>words</code> 和一个长度 <code>maxWidth</code> ，重新排版单词，使其成为每行恰好有 <code>maxWidth</code> 个字符，且左右两端对齐的文本。</p>
-<p>你应该使用 “<strong>贪心算法</strong>” 来放置给定的单词；也就是说，尽可能多地往每行中放置单词。必要时可用空格 <code>&#39; &#39;</code> 填充，使得每行恰好有 <em>maxWidth</em> 个字符。</p>
-<p>要求尽可能均匀分配单词间的空格数量。如果某一行单词间的空格不能均匀分配，则左侧放置的空格数要多于右侧的空格数。</p>
-<p>文本的最后一行应为左对齐，且单词之间不插入<strong>额外的</strong>空格。</p>
-<p><strong>注意:</strong></p>
+        <h2 id="Java-复习"><a href="#Java-复习" class="headerlink" title="Java 复习"></a>Java 复习</h2><ul>
+<li><p>重载的概念：在同一个类中，允许存在一个以上的同名方法，只要它们的参数个数或者参数类型不同即可，<strong>与返回类型无关，只看参数列表</strong></p>
+</li>
+<li><p>重写的概念：Override，子类中国出现与父类一模一样的方法时（<strong>返回值类型，方法名和参数列表都相同</strong>）,会出现覆盖效果，也称为重写或者复写</p>
+</li>
+<li><p>多态：对象<strong>向上转型</strong>    父类 &#x3D; new 子类 <strong>只有方法具有多态性，成员变量没有多态性</strong></p>
+</li>
+</ul>
+<blockquote>
+<ol>
+<li>高层模块不应该依赖底层模块，两者都应该依赖其抽象</li>
+<li>抽象不应该依赖细节，细节应该依赖抽象</li>
+<li>要针对接口编程，不要针对实现编程（重要，大大增加系统的可扩展性）</li>
+</ol>
+<blockquote>
+<p>优点： 可以减少类内耦合，提高系统稳定性，提高代码可读性和可维护性，降低修改程序所造成的风险。</p>
+</blockquote>
+</blockquote>
 <ul>
-<li>单词是指由非空格字符组成的字符序列。</li>
-<li>每个单词的长度大于 0，小于等于 <em>maxWidth</em>。</li>
-<li>输入单词数组 <code>words</code> 至少包含一个单词。</li>
+<li><p>数组在内存存储方面的特点：</p>
+<blockquote>
+<p> 1.数组初始化以后，长度就确定了。</p>
+<ol start="2">
+<li>数组声明的类型，就决定了进行元素初始化时的类型</li>
+</ol>
+</blockquote>
+</li>
+<li><p>数组局限性-&gt;使用集合，集合：特殊的对象，是对象的容器，是一组对象的集合（集合里存放对象，非基本类型数据）</p>
+</li>
 </ul>
-<p><strong>示例 1:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入:words = [&quot;This&quot;, &quot;is&quot;, &quot;an&quot;, &quot;example&quot;, &quot;of&quot;, &quot;text&quot;, &quot;justification.&quot;], maxWidth = 16</span><br><span class="line">输出:[</span><br><span class="line">   &quot;This    is    an&quot;,</span><br><span class="line">   &quot;example  of text&quot;,</span><br><span class="line">   &quot;justification.  &quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401071050524.png" alt="image-20240107105002300" style="zoom:50%;" />
 
-<p><strong>示例 2:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入:words = [&quot;What&quot;,&quot;must&quot;,&quot;be&quot;,&quot;acknowledgment&quot;,&quot;shall&quot;,&quot;be&quot;], maxWidth = 16</span><br><span class="line">输出:[</span><br><span class="line">  &quot;What   must   be&quot;,</span><br><span class="line">  &quot;acknowledgment  &quot;,</span><br><span class="line">  &quot;shall be        &quot;</span><br><span class="line">]</span><br><span class="line">解释:注意最后一行的格式应为 &quot;shall be    &quot; 而不是 &quot;shall     be&quot;,</span><br><span class="line">     因为最后一行应为左对齐，而不是左右两端对齐。       </span><br><span class="line">     第二行同样为左对齐，这是因为这行只包含一个单词。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">输入:words = [&quot;Science&quot;,&quot;is&quot;,&quot;what&quot;,&quot;we&quot;,&quot;understand&quot;,&quot;well&quot;,&quot;enough&quot;,&quot;to&quot;,&quot;explain&quot;,&quot;to&quot;,&quot;a&quot;,&quot;computer.&quot;,&quot;Art&quot;,&quot;is&quot;,&quot;everything&quot;,&quot;else&quot;,&quot;we&quot;,&quot;do&quot;]，maxWidth = 20</span><br><span class="line">输出:[</span><br><span class="line">  &quot;Science  is  what we&quot;,</span><br><span class="line">  &quot;understand      well&quot;,</span><br><span class="line">  &quot;enough to explain to&quot;,</span><br><span class="line">  &quot;a  computer.  Art is&quot;,</span><br><span class="line">  &quot;everything  else  we&quot;,</span><br><span class="line">  &quot;do                  &quot;</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示:</strong></p>
 <ul>
-<li><code>1 &lt;= words.length &lt;= 300</code></li>
-<li><code>1 &lt;= words[i].length &lt;= 20</code></li>
-<li><code>words[i]</code> 由小写英文字母和符号组成</li>
-<li><code>1 &lt;= maxWidth &lt;= 100</code></li>
-<li><code>words[i].length &lt;= maxWidth</code></li>
+<li>Map</li>
 </ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>纯模拟题，先贪心算出每行能放置多少个字符串，长度溢出去除掉一个字符串即可。</li>
-<li>对贪心得到的字符串进行处理，需要计算出字符串左右空格的个数</li>
+<blockquote>
+<p>HashMap: JDK7以前实现为数组+链表结构（即为链地址法），JDK8以后为数组+链表+红黑树。保证成对元素唯一，并且查询速度很快，但是存放数组是无序的</p>
+<p>LinkedHashMap:成对元素唯一，存放数组是有序的。底层为链表+哈希表</p>
+<p>TreeMap:保证所有的Key-Value有序，底层使用红黑树存储</p>
+</blockquote>
+<ul>
+<li><p>凡是用双引号括起来的都是String对象，存储在内存方法区中的<strong>字符串常量池</strong>中</p>
+</li>
+<li><p>异常体系</p>
+</li>
 </ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">       <span class="keyword">public</span> List&lt;String&gt; <span class="title function_">fullJustify</span><span class="params">(String[] words, <span class="type">int</span> maxWidth)</span> &#123;</span><br><span class="line">           <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> words.length;</span><br><span class="line">           <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span><span class="number">0</span>;</span><br><span class="line">           List&lt;String&gt; ans = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">           <span class="type">StringBuilder</span> <span class="variable">stringTmp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">           <span class="type">int</span> nowLen;</span><br><span class="line">           <span class="type">int</span> newLen;</span><br><span class="line">           <span class="type">int</span> <span class="variable">wordsNum</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">           <span class="keyword">while</span>(i&lt;len)&#123;</span><br><span class="line">               nowLen = stringTmp.length();</span><br><span class="line">               <span class="keyword">if</span>(nowLen == <span class="number">0</span>)&#123;</span><br><span class="line">                   stringTmp.append(words[i]);</span><br><span class="line">               &#125;</span><br><span class="line">               <span class="keyword">else</span>&#123;</span><br><span class="line">                   stringTmp.append(<span class="string">&quot; &quot;</span>).append(words[i]);</span><br><span class="line">               &#125;</span><br><span class="line">               newLen = stringTmp.length();</span><br><span class="line">               i++;</span><br><span class="line">               wordsNum++;</span><br><span class="line">               <span class="keyword">if</span>(newLen&gt;maxWidth)&#123;</span><br><span class="line">                   <span class="comment">//长度超出 还原并处理字符串</span></span><br><span class="line">                   i--;</span><br><span class="line">                   wordsNum--;</span><br><span class="line">                   <span class="type">String</span> <span class="variable">substring</span> <span class="operator">=</span> stringTmp.substring(<span class="number">0</span>, nowLen);</span><br><span class="line">                   <span class="comment">//处理substring</span></span><br><span class="line">                   <span class="type">int</span> <span class="variable">blanksNum</span> <span class="operator">=</span> wordsNum-<span class="number">1</span>;</span><br><span class="line">                   <span class="type">int</span> addBlank;</span><br><span class="line">                   <span class="type">int</span> extraBlank;</span><br><span class="line">                   String[] s = substring.split(<span class="string">&quot; &quot;</span>);</span><br><span class="line">                   <span class="type">StringBuilder</span> <span class="variable">stringBuilderTmp</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">                   <span class="keyword">if</span>(blanksNum !=<span class="number">0</span>)&#123;</span><br><span class="line">                       addBlank = ((maxWidth - substring.length())/blanksNum)+<span class="number">1</span>;</span><br><span class="line">                       extraBlank = (maxWidth-substring.length())%blanksNum;</span><br><span class="line">                       <span class="keyword">for</span> (<span class="type">int</span> j=<span class="number">0</span>;j&lt;s.length-<span class="number">1</span>;j++) &#123;</span><br><span class="line">                           stringBuilderTmp.append(s[j]);</span><br><span class="line">                           <span class="keyword">if</span>(j&lt;extraBlank)&#123;</span><br><span class="line">                               stringBuilderTmp.append(<span class="string">&quot; &quot;</span>.repeat(Math.max(<span class="number">0</span>, addBlank + <span class="number">1</span>)));</span><br><span class="line">                           &#125;</span><br><span class="line">                           <span class="keyword">else</span>&#123;</span><br><span class="line">                               stringBuilderTmp.append(<span class="string">&quot; &quot;</span>.repeat(Math.max(<span class="number">0</span>, addBlank)));</span><br><span class="line">                           &#125;</span><br><span class="line">                       &#125;</span><br><span class="line">                       stringBuilderTmp.append(s[s.length-<span class="number">1</span>]);</span><br><span class="line">                   &#125;</span><br><span class="line">                   <span class="keyword">else</span>&#123;</span><br><span class="line">                       addBlank = maxWidth - substring.length();</span><br><span class="line">                       stringBuilderTmp.append(s[<span class="number">0</span>]).append(<span class="string">&quot; &quot;</span>.repeat(Math.max(<span class="number">0</span>,addBlank)));</span><br><span class="line">                   &#125;</span><br><span class="line"></span><br><span class="line">                   ans.add(stringBuilderTmp.toString());</span><br><span class="line">                   stringTmp = <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">                   wordsNum = <span class="number">0</span>;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           stringTmp.append(<span class="string">&quot; &quot;</span>.repeat(Math.max(<span class="number">0</span>,maxWidth-stringTmp.length())));</span><br><span class="line">           ans.add(stringTmp.toString());</span><br><span class="line">           <span class="keyword">return</span> ans;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Error：Java虚拟机无法解决的严重问题，一般不编写针对性的代码进行处理</p>
+<p>Exception：因编程错误或偶然的外在因素导致的一般性问题，可以使用针对性的代码处理</p>
+</blockquote>
+<ul>
+<li>Q：try{}里面有一个return语句，那么紧跟在这个try后的finally{}里的code会不会被执行，什么时候被执行，在return前还是return后？ A：会执行，在return前执行.</li>
+<li>一般，用户自定义异常类都是RuntimeException的子类</li>
+<li>自定义的异常通过throw抛出</li>
+</ul>
+<p><strong><img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401081151966.png" alt="image-20240108115146926" style="zoom:50%;" /></strong></p>
+<ul>
+<li>线程与进程</li>
+</ul>
+<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401101003390.png" alt="image-20240110100306344" style="zoom:50%;" />
+
+<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401101007482.png" alt="image-20240110100741462" style="zoom:50%;" />
+
+<ul>
+<li>线程周期的四种状态:</li>
+</ul>
+<blockquote>
+<ol>
+<li>新建状态</li>
+<li>可运行状态</li>
+<li>阻塞状态</li>
+<li>死亡状态</li>
+</ol>
+</blockquote>
+<ul>
+<li>线程控制方法：</li>
+</ul>
+<blockquote>
+<ol>
+<li>join(): 阻塞指定线程等到另一个线程完成以后再继续执行.</li>
+<li>sleep():使线程停止运行一段时间，将处于阻塞状态</li>
+<li>interrupt():并没有直接中断线程，而是需要被中断线程自己处理</li>
+<li>stop():结束线程，不推荐使用</li>
+</ol>
+</blockquote>
+<ul>
+<li>线程安全问题</li>
+</ul>
+<blockquote>
+<p>条件：</p>
+<blockquote>
+<ol>
+<li>多线程并发</li>
+<li>有共享数据</li>
+<li>共享数据有修改的行为</li>
+</ol>
+</blockquote>
+<p>如何解决：线程同步机制</p>
+</blockquote>
+<ul>
+<li>变量与线程安全问题：</li>
+</ul>
+<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401101040607.png" alt="image-20240110104034584" style="zoom:50%;" />
 
 
+
+<ul>
+<li>线程通信</li>
+</ul>
+<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401101047613.png" alt="image-20240110104708594" style="zoom:50%;" />
       
 
       
@@ -273,7 +354,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/01/05/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98%2068.%E6%96%87%E6%9C%AC%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/01/06/Java%20%E5%A4%8D%E4%B9%A0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -287,7 +368,7 @@
   
 <nav id="article-nav">
   
-    <a href="/2024/01/06/Java%20%E5%A4%8D%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2024/01/07/%E8%AE%A1%E7%BD%91%E5%A4%8D%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
@@ -297,7 +378,7 @@
     </a>
   
   
-    <a href="/2024/01/04/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98%20%E6%89%BE%E5%87%BA%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%AD%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8C%B9%E9%85%8D%E9%A1%B9%E7%9A%84%E4%B8%8B%E6%A0%87/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2024/01/05/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98%2068.%E6%96%87%E6%9C%AC%E5%B7%A6%E5%8F%B3%E5%AF%B9%E9%BD%90/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title"></div>
       <i class="icon-circle-right"></i>
     </a>
