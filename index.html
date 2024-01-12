@@ -168,6 +168,73 @@
 <h4 id="OSI七层模型"><a href="#OSI七层模型" class="headerlink" title="OSI七层模型"></a>OSI七层模型</h4><p>应用层、表示层、会话层、传输层、网络层、数据链路层、物理层</p>
 <h4 id="TCP-IP四层模型"><a href="#TCP-IP四层模型" class="headerlink" title="TCP&#x2F;IP四层模型"></a>TCP&#x2F;IP四层模型</h4><p>应用层、传输层、网络层、网络接口层</p>
 <h4 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h4><h5 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h5><p>成帧 （Framing）<br>将比特流划分成“帧”的主要目的是为了检测和纠正物理层在比特传输中可能出现的错误，数据链路层功能需借助“帧”的各个域来实现<br>差错控制 （Error Control）<br>处理传输中出现的差错，如位错误、丢失等<br>流量控制 （Flow Control）<br>确保发送方的发送速率，不大于接收方的处理速率，避免接收缓冲区溢出</p>
+<ul>
+<li>码元：一个数字脉冲就是一个码元，或者也可以说码元就是一个固定时长的波形信号，用这个波形来代表一个K进制数字。</li>
+<li>码元与比特的关系： 码元修带多少比特信息，与码元的进制有关</li>
+</ul>
+<blockquote>
+<p>例如一个4进制码元，他就有四种不同的形态，分别表示0，1，2，3；对应的二进制就是00，01，10，11；可见需要两位2进制数才能表示，因此它就携带了2比特的信息（这里有个前提条件，<strong>每个符号等概率传输</strong>）<br>同理，8进制码元，携带3比特信息<br>M进制码元，携带log2(M)比特信息</p>
+</blockquote>
+<ul>
+<li><p>波特率RB：也称为码元传输速率，表示一秒钟传输多少个码元，单位为波特&#x2F;秒。<strong>波特率和码元是几进制没有关系</strong></p>
+</li>
+<li><p>比特率Rb：也称为信息传输速率，即一秒钟传输的比特个数，单位为比特&#x2F;秒</p>
+</li>
+<li><p>波特率与比特率的转换：Rb &#x3D; RB*log2M.     M为码元进制数</p>
+</li>
+<li><p>奈氏准则（无噪音）和 香农公式（有噪音）:</p>
+</li>
+</ul>
+<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401111558009.png" alt="image-20240111155843965" style="zoom:50%;" />
+
+<p>S&#x2F;N为 信号的平均功率：噪声的平均功率</p>
+<p>(注意单位不同)</p>
+<ul>
+<li>通过信噪比计算S&#x2F;N</li>
+</ul>
+<blockquote>
+<p>信噪比（dB）&#x3D; 10log10（S&#x2F;N）</p>
+</blockquote>
+<ul>
+<li>数据链路层的三个基本问题： 封装成帧、透明传输、差错检测</li>
+<li>CSMA&#x2F;CD:载波监听多点接入&#x2F;碰撞检测</li>
+</ul>
+<blockquote>
+<p>多点接入-&gt;总线型网络</p>
+<p>载波监听-&gt;边发送边监听</p>
+<p>碰撞检测-&gt;如果检测出有其他站也在发送，就中止本站的发送</p>
+</blockquote>
+<ul>
+<li>CSMA&#x2F;CD要求在发送一帧时如果有冲突存在，必须能在发送最后一位之前检测出冲突，其条件是帧的发送时间不小于信号在最远两个站点之间往返传输的时间。</li>
+<li>CSMA&#x2F;CD计算：</li>
+</ul>
+<img src="/Users/sijixiamu/Library/Application Support/typora-user-images/image-20240112112500928.png" alt="image-20240112112500928" style="zoom:50%;" />
+
+<ul>
+<li>CSMA&#x2F;CD争用期与最小帧长：</li>
+</ul>
+<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401121132191.png" alt="image-20240112113202173" style="zoom:50%;" />
+
+<ul>
+<li>CSMA码片内积计算发送数据：</li>
+</ul>
+<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401121138448.png" alt="image-20240112113816426" style="zoom:50%;" />
+
+<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202401121138150.png" alt="image-20240112113830129" style="zoom:50%;" />
+
+<ul>
+<li><p>TCP的拥塞控制算法：慢开始、拥塞避免、快重传、快恢复</p>
+</li>
+<li><p>邮件相关协议：</p>
+</li>
+</ul>
+<blockquote>
+<p>邮件发送协议：SMTP 发送邮件一方会以SMTP协议客户端的身份与SMTP服务器端建立TCP连接，然后将邮件发送到服务器上</p>
+<p>邮件接收协议：POP3，用于接收邮件的用户主动收取处理其邮箱中的邮件</p>
+</blockquote>
+<ul>
+<li>网络号 &#x3D; 主机号 与 子网掩码</li>
+</ul>
 
       
 
