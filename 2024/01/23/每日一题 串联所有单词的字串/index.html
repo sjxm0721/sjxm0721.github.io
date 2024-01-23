@@ -8,11 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="每日一题 串联所有单词的字串题目给定一个字符串 s 和一个字符串数组 words。 words 中所有字符串 长度相同。  s 中的 串联子串 是指一个包含 words 中所有字符串以任意顺序排列连接起来的子串。  例如，如果 words &#x3D; [&quot;ab&quot;,&quot;cd&quot;,&quot;ef&quot;]， 那么 &quot;abcdef&quot;， &quot;a">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/page/4/index.html">
+<meta property="og:url" content="http://example.com/2024/01/23/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E4%B8%B2%E8%81%94%E6%89%80%E6%9C%89%E5%8D%95%E8%AF%8D%E7%9A%84%E5%AD%97%E4%B8%B2/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="每日一题 串联所有单词的字串题目给定一个字符串 s 和一个字符串数组 words。 words 中所有字符串 长度相同。  s 中的 串联子串 是指一个包含 words 中所有字符串以任意顺序排列连接起来的子串。  例如，如果 words &#x3D; [&quot;ab&quot;,&quot;cd&quot;,&quot;ef&quot;]， 那么 &quot;abcdef&quot;， &quot;a">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-23T03:29:40.210Z">
+<meta property="article:modified_time" content="2024-01-23T03:29:40.210Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -150,724 +154,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-每日一题 剑指Offer30.包含min函数的栈" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-每日一题 串联所有单词的字串" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="每日一题-剑指Offer30-包含min函数的栈"><a href="#每日一题-剑指Offer30-包含min函数的栈" class="headerlink" title="每日一题 剑指Offer30.包含min函数的栈"></a>每日一题 剑指Offer30.包含min函数的栈</h2><p>2023&#x2F;8&#x2F;23</p>
-<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202308231933590.jpg" alt="yx" style="zoom:33%;" />
-
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。</p>
-<p><strong>示例:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MinStack minStack = new MinStack();</span><br><span class="line">minStack.push(-2);</span><br><span class="line">minStack.push(0);</span><br><span class="line">minStack.push(-3);</span><br><span class="line">minStack.min();   --&gt; 返回 -3.</span><br><span class="line">minStack.pop();</span><br><span class="line">minStack.top();      --&gt; 返回 0.</span><br><span class="line">minStack.min();   --&gt; 返回 -2.</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ol>
-<li>各函数的调用总次数不超过 20000 次</li>
-</ol>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
-<li>类似的使用栈来求最大值或最小值一类的问题都是使用同一种解法，辅助栈</li>
-<li>以本题为例，我们另开辟一个栈作为辅助栈来存放数据栈中的最小值，同时这两个栈也要实现同步的插入与删除。</li>
-</ol>
+        <h2 id="每日一题-串联所有单词的字串"><a href="#每日一题-串联所有单词的字串" class="headerlink" title="每日一题 串联所有单词的字串"></a>每日一题 串联所有单词的字串</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串 <code>s</code> 和一个字符串数组 <code>words</code><strong>。</strong> <code>words</code> 中所有字符串 <strong>长度相同</strong>。</p>
+<p> <code>s</code> 中的 <strong>串联子串</strong> 是指一个包含 <code>words</code> 中所有字符串以任意顺序排列连接起来的子串。</p>
 <ul>
-<li><p>当一个元素要入栈时，我们取当前辅助栈的栈顶存储的最小值，与当前元素比较得出最小值，将这个最小值插入辅助栈中；</p>
-</li>
-<li><p>当一个元素要出栈时，我们把辅助栈的栈顶元素也一并弹出；</p>
-</li>
-<li><p>在任意一个时刻，栈内元素的最小值就存储在辅助栈的栈顶元素中。</p>
-</li>
+<li>例如，如果 <code>words = [&quot;ab&quot;,&quot;cd&quot;,&quot;ef&quot;]</code>， 那么 <code>&quot;abcdef&quot;</code>， <code>&quot;abefcd&quot;</code>，<code>&quot;cdabef&quot;</code>， <code>&quot;cdefab&quot;</code>，<code>&quot;efabcd&quot;</code>， 和 <code>&quot;efcdab&quot;</code> 都是串联子串。 <code>&quot;acdbef&quot;</code> 不是串联子串，因为他不是任何 <code>words</code> 排列的连接。</li>
 </ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">MinStack</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    Stack&lt;Integer&gt; st1;</span><br><span class="line">    Stack&lt;Integer&gt; st2;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">MinStack</span><span class="params">()</span> &#123;</span><br><span class="line">        st1=<span class="keyword">new</span> <span class="title class_">Stack</span>&lt;&gt;();</span><br><span class="line">        st2=<span class="keyword">new</span> <span class="title class_">Stack</span>&lt;&gt;();    </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">push</span><span class="params">(<span class="type">int</span> x)</span> &#123;</span><br><span class="line">        st1.push(x);</span><br><span class="line">        <span class="keyword">if</span>(st2.isEmpty()||st2.peek()&gt;x)&#123;</span><br><span class="line">            st2.push(x);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> st2.push(st2.peek());</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">pop</span><span class="params">()</span> &#123;</span><br><span class="line">        st1.pop();</span><br><span class="line">        st2.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">top</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> st1.peek();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">min</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> st2.peek();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/23/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer30.%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer29.顺时针打印矩阵" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer29-顺时针打印矩阵"><a href="#每日一题-剑指Offer29-顺时针打印矩阵" class="headerlink" title="每日一题 剑指Offer29.顺时针打印矩阵"></a>每日一题 剑指Offer29.顺时针打印矩阵</h2><p>2023&#x2F;8&#x2F;22<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202308222021839.jpg" alt="tk" style="zoom:50%;" /></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。</p>
+<p>返回所有串联子串在 <code>s</code> 中的开始索引。你可以以 <strong>任意顺序</strong> 返回答案。</p>
 <p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[1,2,3],[4,5,6],[7,8,9]]</span><br><span class="line">输出：[1,2,3,6,9,8,7,4,5]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;barfoothefoobarman&quot;, words = [&quot;foo&quot;,&quot;bar&quot;]</span><br><span class="line">输出：[0,9]</span><br><span class="line">解释：因为 words.length == 2 同时 words[i].length == 3，连接的子字符串的长度必须为 6。</span><br><span class="line">子串 &quot;barfoo&quot; 开始位置是 0。它是 words 中以 [&quot;bar&quot;,&quot;foo&quot;] 顺序排列的连接。</span><br><span class="line">子串 &quot;foobar&quot; 开始位置是 9。它是 words 中以 [&quot;foo&quot;,&quot;bar&quot;] 顺序排列的连接。</span><br><span class="line">输出顺序无关紧要。返回 [9,0] 也是可以的。</span><br></pre></td></tr></table></figure>
 
 <p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]</span><br><span class="line">输出：[1,2,3,4,8,12,11,10,9,5,6,7]</span><br></pre></td></tr></table></figure>
-
-<p><strong>限制：</strong></p>
-<ul>
-<li><code>0 &lt;= matrix.length &lt;= 100</code></li>
-<li><code>0 &lt;= matrix[i].length &lt;= 100</code></li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>对顺时针打印数组进行模拟，由于数组需要改变的所有方向构成的数组为一个<em><strong>循环数组</strong></em>，所以我们只需要在数组到头或者遇到已经遍历过的元素的时候改变方向继续遍历即可。</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] spiralOrder(<span class="type">int</span>[][] matrix) &#123;</span><br><span class="line">        <span class="keyword">if</span>(matrix==<span class="literal">null</span>||matrix.length==<span class="number">0</span>||matrix[<span class="number">0</span>].length==<span class="number">0</span>)<span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">int</span>[<span class="number">0</span>];</span><br><span class="line">        <span class="type">int</span>[][] pos=&#123;&#123;<span class="number">0</span>,<span class="number">1</span>&#125;,&#123;<span class="number">1</span>,<span class="number">0</span>&#125;,&#123;<span class="number">0</span>,-<span class="number">1</span>&#125;,&#123;-<span class="number">1</span>,<span class="number">0</span>&#125;&#125;;<span class="comment">//顺时针四个方向对应坐标的变化</span></span><br><span class="line">        <span class="type">int</span> dirIndex=<span class="number">0</span>;<span class="comment">//记录此时的方向</span></span><br><span class="line">        <span class="type">int</span> lenX=matrix.length;</span><br><span class="line">        <span class="type">int</span> lenY=matrix[<span class="number">0</span>].length;</span><br><span class="line">        <span class="type">boolean</span>[][] visited=<span class="keyword">new</span> <span class="title class_">boolean</span>[lenX][lenY];</span><br><span class="line">        <span class="type">int</span>[] ans=<span class="keyword">new</span> <span class="title class_">int</span>[lenX*lenY];</span><br><span class="line">        <span class="type">int</span> nowX=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> nowY=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;lenX*lenY;i++)&#123;</span><br><span class="line">            ans[i]=matrix[nowX][nowY];</span><br><span class="line">            visited[nowX][nowY]=<span class="literal">true</span>;</span><br><span class="line">            <span class="type">int</span> newX=nowX+pos[dirIndex][<span class="number">0</span>];</span><br><span class="line">            <span class="type">int</span> newY=nowY+pos[dirIndex][<span class="number">1</span>];</span><br><span class="line">            <span class="keyword">if</span>(newX&lt;<span class="number">0</span>||newX&gt;=lenX||newY&lt;<span class="number">0</span>||newY&gt;=lenY||visited[newX][newY]==<span class="literal">true</span>)&#123;</span><br><span class="line">                dirIndex=(dirIndex+<span class="number">1</span>)%<span class="number">4</span>;<span class="comment">//换成下一个方向</span></span><br><span class="line">            &#125;</span><br><span class="line">            nowX+=pos[dirIndex][<span class="number">0</span>];</span><br><span class="line">            nowY+=pos[dirIndex][<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/22/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer29.%E9%A1%BA%E6%97%B6%E9%92%88%E6%89%93%E5%8D%B0%E7%9F%A9%E9%98%B5/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer28.对称的二叉树" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer28-对称的二叉树"><a href="#每日一题-剑指Offer28-对称的二叉树" class="headerlink" title="每日一题 剑指Offer28.对称的二叉树"></a>每日一题 剑指Offer28.对称的二叉树</h2><p>2023&#x2F;8&#x2F;21</p>
-<img src="https://sky-take-out-sjxm.oss-cn-hangzhou.aliyuncs.com/202308212010299.jpg" alt="lian" style="zoom:50%;" />
-
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请实现一个函数，用来判断一棵二叉树是不是对称的。如果一棵二叉树和它的镜像一样，那么它是对称的。</p>
-<p>例如，二叉树 [1,2,2,3,4,4,3] 是对称的。</p>
-<p><code>  1   / \  2  2 / \ / \ 3  4 4  3</code><br>但是下面这个 [1,2,2,null,3,null,3] 则不是镜像对称的:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1   / \  2  2   \  \   3   3</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,2,2,3,4,4,3]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [1,2,2,null,3,null,3]</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
-
-<p><strong>限制：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 &lt;= 节点个数 &lt;= 1000</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>先将树翻转，再判断翻转后的树和原来的树是否相等</li>
-<li>注意两树完全相等的判断</li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://sjxm0721.github.io/2023/08/20/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer.27%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/">剑指Offer27.二叉树的镜像</a></p>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isSymmetric</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> isSame(root,traversalTree(root));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">traversalTree</span><span class="params">(TreeNode node)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(node==<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode tmp=<span class="keyword">new</span> <span class="title class_">TreeNode</span>(node.val);</span><br><span class="line">        tmp.left=traversalTree(node.right);</span><br><span class="line">        tmp.right=traversalTree(node.left);</span><br><span class="line">        <span class="keyword">return</span> tmp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isSame</span><span class="params">(TreeNode a,TreeNode b)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="literal">null</span>&amp;&amp;b==<span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">if</span>(a==<span class="literal">null</span>||b==<span class="literal">null</span>||a.val!=b.val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> isSame(a.left,b.left)&amp;&amp;isSame(a.right,b.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>官方的递归代码：</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isSymmetric</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> check(root, root);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">check</span><span class="params">(TreeNode p, TreeNode q)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="literal">null</span> &amp;&amp; q == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (p == <span class="literal">null</span> || q == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> p.val == q.val &amp;&amp; check(p.left, q.right) &amp;&amp; check(p.right, q.left);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>我们可以实现这样一个递归函数，通过「同步移动」两个指针的方法来遍历这棵树，ppp 指针和 qqq 指针一开始都指向这棵树的根，随后 ppp 右移时，qqq 左移，ppp 左移时，qqq 右移。每次检查当前 ppp 和 qqq 节点的值是否相等，如果相等再判断左右子树是否对称。</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/21/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer28.%E5%AF%B9%E7%A7%B0%E7%9A%84%E4%BA%8C%E5%8F%89%E6%A0%91/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer.27 二叉树的镜像" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer-27-二叉树的镜像"><a href="#每日一题-剑指Offer-27-二叉树的镜像" class="headerlink" title="每日一题 剑指Offer.27 二叉树的镜像"></a>每日一题 剑指Offer.27 二叉树的镜像</h2><p>2023&#x2F;8&#x2F;20<img src="/Users/sijixiamu/Pictures/tk.jpg" alt="tk"></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请完成一个函数，输入一个二叉树，该函数输出它的镜像。</p>
-<p>例如输入：</p>
-<p><code>   4   /  \  2   7 / \  / \ 1  3 6  9</code><br>镜像输出：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4   /  \  7   2 / \  / \ 9  6 3  1</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：root = [4,2,7,1,3,6,9]</span><br><span class="line">输出：[4,7,2,9,6,3,1]</span><br></pre></td></tr></table></figure>
-
-<p><strong>限制：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 &lt;= 节点个数 &lt;= 1000</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>有关树的题目就一定要先想到递归</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> TreeNode <span class="title function_">mirrorTree</span><span class="params">(TreeNode root)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        TreeNode tmp1=root.left;</span><br><span class="line">        TreeNode tmp2=root.right;</span><br><span class="line">        root.left=mirrorTree(tmp2);</span><br><span class="line">        root.right=mirrorTree(tmp1);</span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/20/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer.27%20%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer.26 树的子结构" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer-26-树的子结构"><a href="#每日一题-剑指Offer-26-树的子结构" class="headerlink" title="每日一题 剑指Offer.26 树的子结构"></a>每日一题 剑指Offer.26 树的子结构</h2><p>2023&#x2F;8&#x2F;19<img src="/Users/sijixiamu/Pictures/tk.jpg" alt="tk"  /></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)</p>
-<p>B是A的子结构， 即 A中有出现和B相同的结构和节点值。</p>
-<p>例如:<br>给定的树 A:</p>
-<p><code>   3   / \   4  5  / \ 1  2</code><br>给定的树 B：</p>
-<p><code>  4  / 1</code><br>返回 true，因为 B 与 A 的一个子树拥有相同的结构和节点值。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：A = [1,2,3], B = [3,1]</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：A = [3,4,5,1,2], B = [4,1]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
-
-<p><strong>限制：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 &lt;= 节点个数 &lt;= 10000</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>二叉树经典递归题，题目看似很困难但是可以用递归很巧妙地解决。</li>
-<li>直接上代码</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isSubStructure</span><span class="params">(TreeNode A, TreeNode B)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(A==<span class="literal">null</span>||B==<span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">false</span>; <span class="comment">//A、B均不能为空</span></span><br><span class="line">        <span class="keyword">return</span> childTree(A,B)||isSubStructure(A.left,B)||isSubStructure(A.right,B);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">childTree</span><span class="params">(TreeNode A,TreeNode B)</span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(B==<span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(A==<span class="literal">null</span>||A.val!=B.val) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> childTree(A.left,B.left)&amp;&amp;childTree(A.right,B.right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/19/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer.26%20%E6%A0%91%E7%9A%84%E5%AD%90%E7%BB%93%E6%9E%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer25.合并两个排序的链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer25-合并两个排序的链表"><a href="#每日一题-剑指Offer25-合并两个排序的链表" class="headerlink" title="每日一题 剑指Offer25.合并两个排序的链表"></a>每日一题 剑指Offer25.合并两个排序的链表</h2><p>2023&#x2F;8&#x2F;18<img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308181951071.jpg" alt="shibaki" style="zoom:50%;" /></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>输入两个递增排序的链表，合并这两个链表并使新链表中的节点仍然是递增排序的。</p>
-<p><strong>示例1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：1-&gt;2-&gt;4, 1-&gt;3-&gt;4</span><br><span class="line">输出：1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</span><br></pre></td></tr></table></figure>
-
-<p><strong>限制：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 &lt;= 链表长度 &lt;= 1000</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>创建一个新链表每次接收两个链表中较小的节点即可</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(l1==<span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(l2==<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode head=<span class="keyword">new</span> <span class="title class_">ListNode</span>(-<span class="number">1</span>);</span><br><span class="line">        ListNode ans=head;</span><br><span class="line">        <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(l1==<span class="literal">null</span>)&#123;</span><br><span class="line">                head.next=l2;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(l2==<span class="literal">null</span>)&#123;</span><br><span class="line">                head.next=l1;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(l1.val&lt;l2.val)&#123;</span><br><span class="line">                head.next=l1;</span><br><span class="line">                head=head.next;</span><br><span class="line">                l1=l1.next;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                head.next=l2;</span><br><span class="line">                head=head.next;</span><br><span class="line">                l2=l2.next;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans.next;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>本题还可以使用递归</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">mergeTwoLists</span><span class="params">(ListNode l1, ListNode l2)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (l1 == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (l2 == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (l1.val &lt; l2.val) &#123;</span><br><span class="line">            l1.next = mergeTwoLists(l1.next, l2);</span><br><span class="line">            <span class="keyword">return</span> l1;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            l2.next = mergeTwoLists(l1, l2.next);</span><br><span class="line">            <span class="keyword">return</span> l2;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/18/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer25.%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%8E%92%E5%BA%8F%E7%9A%84%E9%93%BE%E8%A1%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer24.反转链表" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer24-反转链表"><a href="#每日一题-剑指Offer24-反转链表" class="headerlink" title="每日一题 剑指Offer24.反转链表"></a>每日一题 剑指Offer24.反转链表</h2><p>2023&#x2F;8&#x2F;17</p>
-<img src="https://cdn.jsdelivr.net/gh/sjxm0721/sjxmPic/202308171950267.jpg" alt="irena" style="zoom:25%;" />
-
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>定义一个函数，输入一个链表的头节点，反转该链表并输出反转后链表的头节点。</p>
-<p><strong>示例:</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</span><br><span class="line">输出: 5-&gt;4-&gt;3-&gt;2-&gt;1-&gt;NULL</span><br></pre></td></tr></table></figure>
-
-<p><strong>限制：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0 &lt;= 节点个数 &lt;= 5000</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>看到反转数据，我首先想到的是栈这种先进后出的数据结构，只要将每个节点加入栈中，用弹出来的数据构成新数组即可达到答案。</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul>
-<li>时间复杂度高，做法不够优秀</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">reverseList</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(head==<span class="literal">null</span>) <span class="keyword">return</span> <span class="literal">null</span>;</span><br><span class="line">        Stack&lt;ListNode&gt; st=<span class="keyword">new</span> <span class="title class_">Stack</span>&lt;&gt;();</span><br><span class="line">        <span class="keyword">while</span>(head!=<span class="literal">null</span>)&#123;</span><br><span class="line">            st.push(head);</span><br><span class="line">            head=head.next;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode head2=st.pop();</span><br><span class="line">        ListNode ans=head2;</span><br><span class="line">        <span class="keyword">while</span>(!st.isEmpty())&#123;</span><br><span class="line">            head2.next=st.pop();</span><br><span class="line">            head2=head2.next;</span><br><span class="line">            head2.next=<span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<ul>
-<li>官方迭代做法</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">reverseList</span><span class="params">(ListNode head)</span> &#123;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">prev</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line">        <span class="type">ListNode</span> <span class="variable">curr</span> <span class="operator">=</span> head;</span><br><span class="line">        <span class="keyword">while</span> (curr != <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="type">ListNode</span> <span class="variable">next</span> <span class="operator">=</span> curr.next;</span><br><span class="line">            curr.next = prev;</span><br><span class="line">            prev = curr;</span><br><span class="line">            curr = next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> prev;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/17/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer24.%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer22.链表中倒数第k个节点" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer22-链表中倒数第k个节点"><a href="#每日一题-剑指Offer22-链表中倒数第k个节点" class="headerlink" title="每日一题 剑指Offer22.链表中倒数第k个节点"></a>每日一题 剑指Offer22.链表中倒数第k个节点</h2><p>2023&#x2F;8&#x2F;16<img src="/Users/sijixiamu/Pictures/jiaozhu.jpg" alt="jiaozhu" style="zoom:50%;" /></p>
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>输入一个链表，输出该链表中倒数第k个节点。为了符合大多数人的习惯，本题从1开始计数，即链表的尾节点是倒数第1个节点。</p>
-<p>例如，一个链表有 <code>6</code> 个节点，从头节点开始，它们的值依次是 <code>1、2、3、4、5、6</code>。这个链表的倒数第 <code>3</code> 个节点是值为 <code>4</code> 的节点。</p>
-<p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">给定一个链表: 1-&gt;2-&gt;3-&gt;4-&gt;5, 和 k = 2.</span><br><span class="line"></span><br><span class="line">返回链表 4-&gt;5.</span><br></pre></td></tr></table></figure>
-
-
-
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>快慢指针经典题</li>
-<li>慢指针在快指针经过k个节点后开始移动，当快指针移动到尾部时，返回的慢指针正是倒数k个节点的头部节点。</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> ListNode <span class="title function_">getKthFromEnd</span><span class="params">(ListNode head, <span class="type">int</span> k)</span> &#123;</span><br><span class="line">        ListNode quick=head;</span><br><span class="line">        ListNode slow=head;</span><br><span class="line">        <span class="type">int</span> tmp=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span>(quick!=<span class="literal">null</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(tmp&gt;=k)&#123;</span><br><span class="line">                slow=slow.next;</span><br><span class="line">            &#125;</span><br><span class="line">            quick=quick.next;</span><br><span class="line">            tmp++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> slow;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/16/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer22.%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E8%8A%82%E7%82%B9/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer21.调整数组顺序使奇数位于偶数前面" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="每日一题-剑指Offer21-调整数组顺序使奇数位于偶数前面"><a href="#每日一题-剑指Offer21-调整数组顺序使奇数位于偶数前面" class="headerlink" title="每日一题 剑指Offer21.调整数组顺序使奇数位于偶数前面"></a>每日一题 剑指Offer21.调整数组顺序使奇数位于偶数前面</h2><p>2023&#x2F;8&#x2F;14</p>
-<img src="/Users/sijixiamu/Downloads/sakura.jpg" alt="sakura" style="zoom:25%;" />
-
-<hr>
-<h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有奇数在数组的前半部分，所有偶数在数组的后半部分。</p>
-<p><strong>示例：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：nums = [1,2,3,4]</span><br><span class="line">输出：[1,3,2,4] </span><br><span class="line">注：[3,1,2,4] 也是正确的答案之一。</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ol>
-<li><code>0 &lt;= nums.length &lt;= 50000</code></li>
-<li><code>0 &lt;= nums[i] &lt;= 10000</code></li>
-</ol>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>这道题情景有点类似于快排，在快排的循环中使用到了双指针来保证快排数组前半小于基准数，后半大于基准数，但是数组前半部分和后半部分内部大小是没有规定的。这就和这道题类似，所以这道题也可以使用双指针解法</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span>[] exchange(<span class="type">int</span>[] nums) &#123;</span><br><span class="line">        <span class="type">int</span> len=nums.length;</span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> j=len-<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(len==<span class="number">0</span>||len==<span class="number">1</span>)<span class="keyword">return</span> nums;</span><br><span class="line">        <span class="keyword">while</span>(i&lt;j)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i]%<span class="number">2</span>==<span class="number">1</span>)<span class="comment">//是奇数</span></span><br><span class="line">            &#123;</span><br><span class="line">                i++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[j]%<span class="number">2</span>==<span class="number">0</span>)<span class="comment">//是偶数</span></span><br><span class="line">                &#123;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span>&#123;</span><br><span class="line">                    <span class="comment">//交换i，j位置上的数</span></span><br><span class="line">                    <span class="type">int</span> tmp=nums[i];</span><br><span class="line">                    nums[i]=nums[j];</span><br><span class="line">                    nums[j]=tmp;</span><br><span class="line">                    i++;</span><br><span class="line">                    j--;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">            <span class="keyword">return</span> nums;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/14/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer21.%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-每日一题 剑指Offer20.表示数值的字符串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>请实现一个函数用来判断字符串是否表示<strong>数值</strong>（包括整数和小数）。</p>
-<p><strong>数值</strong>（按顺序）可以分成以下几个部分：</p>
-<ol>
-<li>若干空格</li>
-<li>一个 <strong>小数</strong> 或者 <strong>整数</strong></li>
-<li>（可选）一个 <code>&#39;e&#39;</code> 或 <code>&#39;E&#39;</code> ，后面跟着一个 <strong>整数</strong></li>
-<li>若干空格</li>
-</ol>
-<p><strong>小数</strong>（按顺序）可以分成以下几个部分：</p>
-<ol>
-<li>（可选）一个符号字符（<code>&#39;+&#39;</code> 或 <code>&#39;-&#39;</code>）</li>
-<li>下述格式之一：<ol>
-<li>至少一位数字，后面跟着一个点 <code>&#39;.&#39;</code></li>
-<li>至少一位数字，后面跟着一个点 <code>&#39;.&#39;</code> ，后面再跟着至少一位数字</li>
-<li>一个点 <code>&#39;.&#39;</code> ，后面跟着至少一位数字</li>
-</ol>
-</li>
-</ol>
-<p><strong>整数</strong>（按顺序）可以分成以下几个部分：</p>
-<ol>
-<li>（可选）一个符号字符（<code>&#39;+&#39;</code> 或 <code>&#39;-&#39;</code>）</li>
-<li>至少一位数字</li>
-</ol>
-<p>部分<strong>数值</strong>列举如下：</p>
-<ul>
-<li><code>[&quot;+100&quot;, &quot;5e2&quot;, &quot;-123&quot;, &quot;3.1416&quot;, &quot;-1E-16&quot;, &quot;0123&quot;]</code></li>
-</ul>
-<p>部分<strong>非数值</strong>列举如下：</p>
-<ul>
-<li><code>[&quot;12e&quot;, &quot;1a3.14&quot;, &quot;1.2.3&quot;, &quot;+-5&quot;, &quot;12e+5.4&quot;]</code></li>
-</ul>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;0&quot;</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;e&quot;</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;wordgoodgoodgoodbestword&quot;, words = [&quot;word&quot;,&quot;good&quot;,&quot;best&quot;,&quot;word&quot;]</span><br><span class="line">输出：[]</span><br><span class="line">解释：因为 words.length == 4 并且 words[i].length == 4，所以串联子串的长度必须为 16。</span><br><span class="line">s 中没有子串长度为 16 并且等于 words 的任何顺序排列的连接。</span><br><span class="line">所以我们返回一个空数组。</span><br></pre></td></tr></table></figure>
 
 <p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;.&quot;</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 4：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;    .1  &quot;</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;barfoofoobarthefoobarman&quot;, words = [&quot;bar&quot;,&quot;foo&quot;,&quot;the&quot;]</span><br><span class="line">输出：[6,9,12]</span><br><span class="line">解释：因为 words.length == 3 并且 words[i].length == 3，所以串联子串的长度必须为 9。</span><br><span class="line">子串 &quot;foobarthe&quot; 开始位置是 6。它是 words 中以 [&quot;foo&quot;,&quot;bar&quot;,&quot;the&quot;] 顺序排列的连接。</span><br><span class="line">子串 &quot;barthefoo&quot; 开始位置是 9。它是 words 中以 [&quot;bar&quot;,&quot;the&quot;,&quot;foo&quot;] 顺序排列的连接。</span><br><span class="line">子串 &quot;thefoobar&quot; 开始位置是 12。它是 words 中以 [&quot;the&quot;,&quot;foo&quot;,&quot;bar&quot;] 顺序排列的连接。</span><br></pre></td></tr></table></figure>
 
 <p><strong>提示：</strong></p>
 <ul>
-<li><code>1 &lt;= s.length &lt;= 20</code></li>
-<li><code>s</code> 仅含英文字母（大写和小写），数字（<code>0-9</code>），加号 <code>&#39;+&#39;</code> ，减号 <code>&#39;-&#39;</code> ，空格 <code>&#39; &#39;</code> 或者点 <code>&#39;.&#39;</code> 。</li>
+<li><code>1 &lt;= s.length &lt;= 104</code></li>
+<li><code>1 &lt;= words.length &lt;= 5000</code></li>
+<li><code>1 &lt;= words[i].length &lt;= 30</code></li>
+<li><code>words[i]</code> 和 <code>s</code> 由小写英文字母组成</li>
 </ul>
 <hr>
 <h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>这道题没有特别的技巧，就是需要整理所有正确的情况，每种情况都进行判断，多错几次自己汇总一下就可以AC。</li>
-<li>所有正确的前提：</li>
-</ul>
-<ol>
-<li><em><strong>若是有‘.’号出现，只能出现一次。</strong></em></li>
-<li><em><strong>由于E、e后必须跟整数，所以如果出现‘.’号，一定要在E、e之前。</strong></em></li>
-<li><em><strong>E、e后面一定要有数字。</strong></em></li>
-<li><em><strong>若出现’+‘、’-‘号，一定出现在’开头‘或E、e后一位。</strong></em></li>
-</ol>
-<ul>
-<li>别忘记在处理字符串前，先去掉首尾空格。</li>
+<li>由于题目固定了数组中字符串的长度为m，所以我们可以把目标字符串进行划分，划分成每m个字符为一组，只要我们把这m个字符当作一体的，这道题就变成了在字符串中查找字母易位词，这类题目可以使用滑动窗口去解决。</li>
+<li>注意，目标字符串开始位置不同，后续构成了字符串就会出现多种可能性，具体存在m-1种可能性，这里需要进行循环处理</li>
 </ul>
 <hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isNumber</span><span class="params">(String s)</span> &#123;</span><br><span class="line">        <span class="type">boolean</span> number=<span class="literal">false</span>;<span class="comment">//标志是否出现数字</span></span><br><span class="line">        <span class="type">boolean</span> symbol=<span class="literal">false</span>;<span class="comment">//标志正负号</span></span><br><span class="line">        <span class="type">boolean</span> eOrE=<span class="literal">false</span>;<span class="comment">//标志e、E是否出现</span></span><br><span class="line">        <span class="type">boolean</span> dot=<span class="literal">false</span>;<span class="comment">//标志点号是否出现</span></span><br><span class="line">        <span class="keyword">if</span>(s.length()==<span class="number">0</span>)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        s=s.trim();</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s.charAt(i)&gt;=<span class="string">&#x27;0&#x27;</span>&amp;&amp;s.charAt(i)&lt;=<span class="string">&#x27;9&#x27;</span>)&#123;</span><br><span class="line">                number=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(i)==<span class="string">&#x27;.&#x27;</span>&amp;&amp;!dot&amp;&amp;!eOrE)&#123;</span><br><span class="line">                dot=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>((s.charAt(i)==<span class="string">&#x27;e&#x27;</span>||s.charAt(i)==<span class="string">&#x27;E&#x27;</span>)&amp;&amp;!eOrE&amp;&amp;number)&#123;</span><br><span class="line">                eOrE=<span class="literal">true</span>;</span><br><span class="line">                number=<span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>((s.charAt(i)==<span class="string">&#x27;+&#x27;</span>||s.charAt(i)==<span class="string">&#x27;-&#x27;</span>)&amp;&amp;(i==<span class="number">0</span>||s.charAt(i-<span class="number">1</span>)==<span class="string">&#x27;e&#x27;</span>||s.charAt(i-<span class="number">1</span>)==<span class="string">&#x27;E&#x27;</span>))&#123;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> number;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">findSubstring</span><span class="params">(String s, String[] words)</span> &#123;</span><br><span class="line">      <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> s.length();</span><br><span class="line">      <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> words.length;</span><br><span class="line">      <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> words[<span class="number">0</span>].length();</span><br><span class="line">      List&lt;Integer&gt; ans = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span><span class="number">0</span>; i&lt; len; i++)&#123;</span><br><span class="line">          <span class="keyword">if</span>(i+m*len &gt; n) <span class="keyword">break</span>;</span><br><span class="line">          Map&lt;String,Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">          <span class="comment">//滑动窗口事先准备</span></span><br><span class="line">          <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j&lt; m;j++)&#123;</span><br><span class="line">              <span class="type">String</span> <span class="variable">substring</span> <span class="operator">=</span> s.substring(i + j * len, i + (j + <span class="number">1</span>) * len);</span><br><span class="line">              map.put(substring,map.getOrDefault(substring,<span class="number">0</span>)+<span class="number">1</span>);<span class="comment">//出现了一次</span></span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">for</span> (String word : words) &#123;</span><br><span class="line">              map.put(word,map.getOrDefault(word,<span class="number">0</span>)-<span class="number">1</span>);</span><br><span class="line">              <span class="keyword">if</span>(map.get(word) == <span class="number">0</span>)&#123;</span><br><span class="line">                  map.remove(word);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span>(map.isEmpty())&#123;</span><br><span class="line">              ans.add(i);</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> i+len; k + m*len -<span class="number">1</span> &lt; n;k+=len)&#123;</span><br><span class="line">                  <span class="type">String</span> <span class="variable">start</span> <span class="operator">=</span> s.substring(k-len,k);</span><br><span class="line">                  map.put(start,map.getOrDefault(start,<span class="number">0</span>)-<span class="number">1</span>);</span><br><span class="line">                  <span class="keyword">if</span>(map.get(start) == <span class="number">0</span>)&#123;</span><br><span class="line">                      map.remove(start);</span><br><span class="line">                  &#125;</span><br><span class="line">              <span class="type">String</span> <span class="variable">end</span> <span class="operator">=</span> s.substring(k+(m-<span class="number">1</span>)*len,k+m*len);</span><br><span class="line">              map.put(end,map.getOrDefault(end,<span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">              <span class="keyword">if</span>(map.get(end) == <span class="number">0</span>)&#123;</span><br><span class="line">                  map.remove(end);</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">if</span>(map.isEmpty())&#123;</span><br><span class="line">                  ans.add(k);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
 
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -876,16 +221,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/13/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E5%89%91%E6%8C%87Offer20.%E8%A1%A8%E7%A4%BA%E6%95%B0%E5%80%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2024/01/23/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E4%B8%B2%E8%81%94%E6%89%80%E6%9C%89%E5%8D%95%E8%AF%8D%E7%9A%84%E5%AD%97%E4%B8%B2/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2024/01/16/Java%E9%94%81%E4%B8%8Esynchronized%E5%85%B3%E9%94%AE%E5%AD%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -905,12 +309,14 @@
 
 
 
+  
+  
+  
 
   
+
   
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &amp;raquo;</a>
-    </nav>
+
   
 
 
@@ -933,8 +339,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

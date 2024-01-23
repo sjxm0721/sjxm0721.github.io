@@ -152,6 +152,216 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-每日一题 串联所有单词的字串" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="每日一题-串联所有单词的字串"><a href="#每日一题-串联所有单词的字串" class="headerlink" title="每日一题 串联所有单词的字串"></a>每日一题 串联所有单词的字串</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给定一个字符串 <code>s</code> 和一个字符串数组 <code>words</code><strong>。</strong> <code>words</code> 中所有字符串 <strong>长度相同</strong>。</p>
+<p> <code>s</code> 中的 <strong>串联子串</strong> 是指一个包含 <code>words</code> 中所有字符串以任意顺序排列连接起来的子串。</p>
+<ul>
+<li>例如，如果 <code>words = [&quot;ab&quot;,&quot;cd&quot;,&quot;ef&quot;]</code>， 那么 <code>&quot;abcdef&quot;</code>， <code>&quot;abefcd&quot;</code>，<code>&quot;cdabef&quot;</code>， <code>&quot;cdefab&quot;</code>，<code>&quot;efabcd&quot;</code>， 和 <code>&quot;efcdab&quot;</code> 都是串联子串。 <code>&quot;acdbef&quot;</code> 不是串联子串，因为他不是任何 <code>words</code> 排列的连接。</li>
+</ul>
+<p>返回所有串联子串在 <code>s</code> 中的开始索引。你可以以 <strong>任意顺序</strong> 返回答案。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;barfoothefoobarman&quot;, words = [&quot;foo&quot;,&quot;bar&quot;]</span><br><span class="line">输出：[0,9]</span><br><span class="line">解释：因为 words.length == 2 同时 words[i].length == 3，连接的子字符串的长度必须为 6。</span><br><span class="line">子串 &quot;barfoo&quot; 开始位置是 0。它是 words 中以 [&quot;bar&quot;,&quot;foo&quot;] 顺序排列的连接。</span><br><span class="line">子串 &quot;foobar&quot; 开始位置是 9。它是 words 中以 [&quot;foo&quot;,&quot;bar&quot;] 顺序排列的连接。</span><br><span class="line">输出顺序无关紧要。返回 [9,0] 也是可以的。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;wordgoodgoodgoodbestword&quot;, words = [&quot;word&quot;,&quot;good&quot;,&quot;best&quot;,&quot;word&quot;]</span><br><span class="line">输出：[]</span><br><span class="line">解释：因为 words.length == 4 并且 words[i].length == 4，所以串联子串的长度必须为 16。</span><br><span class="line">s 中没有子串长度为 16 并且等于 words 的任何顺序排列的连接。</span><br><span class="line">所以我们返回一个空数组。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;barfoofoobarthefoobarman&quot;, words = [&quot;bar&quot;,&quot;foo&quot;,&quot;the&quot;]</span><br><span class="line">输出：[6,9,12]</span><br><span class="line">解释：因为 words.length == 3 并且 words[i].length == 3，所以串联子串的长度必须为 9。</span><br><span class="line">子串 &quot;foobarthe&quot; 开始位置是 6。它是 words 中以 [&quot;foo&quot;,&quot;bar&quot;,&quot;the&quot;] 顺序排列的连接。</span><br><span class="line">子串 &quot;barthefoo&quot; 开始位置是 9。它是 words 中以 [&quot;bar&quot;,&quot;the&quot;,&quot;foo&quot;] 顺序排列的连接。</span><br><span class="line">子串 &quot;thefoobar&quot; 开始位置是 12。它是 words 中以 [&quot;the&quot;,&quot;foo&quot;,&quot;bar&quot;] 顺序排列的连接。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= s.length &lt;= 104</code></li>
+<li><code>1 &lt;= words.length &lt;= 5000</code></li>
+<li><code>1 &lt;= words[i].length &lt;= 30</code></li>
+<li><code>words[i]</code> 和 <code>s</code> 由小写英文字母组成</li>
+</ul>
+<hr>
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
+<li>由于题目固定了数组中字符串的长度为m，所以我们可以把目标字符串进行划分，划分成每m个字符为一组，只要我们把这m个字符当作一体的，这道题就变成了在字符串中查找字母易位词，这类题目可以使用滑动窗口去解决。</li>
+<li>注意，目标字符串开始位置不同，后续构成了字符串就会出现多种可能性，具体存在m-1种可能性，这里需要进行循环处理</li>
+</ul>
+<hr>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title function_">findSubstring</span><span class="params">(String s, String[] words)</span> &#123;</span><br><span class="line">      <span class="type">int</span> <span class="variable">n</span> <span class="operator">=</span> s.length();</span><br><span class="line">      <span class="type">int</span> <span class="variable">m</span> <span class="operator">=</span> words.length;</span><br><span class="line">      <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> words[<span class="number">0</span>].length();</span><br><span class="line">      List&lt;Integer&gt; ans = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">      <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span><span class="number">0</span>; i&lt; len; i++)&#123;</span><br><span class="line">          <span class="keyword">if</span>(i+m*len &gt; n) <span class="keyword">break</span>;</span><br><span class="line">          Map&lt;String,Integer&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">          <span class="comment">//滑动窗口事先准备</span></span><br><span class="line">          <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>; j&lt; m;j++)&#123;</span><br><span class="line">              <span class="type">String</span> <span class="variable">substring</span> <span class="operator">=</span> s.substring(i + j * len, i + (j + <span class="number">1</span>) * len);</span><br><span class="line">              map.put(substring,map.getOrDefault(substring,<span class="number">0</span>)+<span class="number">1</span>);<span class="comment">//出现了一次</span></span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">for</span> (String word : words) &#123;</span><br><span class="line">              map.put(word,map.getOrDefault(word,<span class="number">0</span>)-<span class="number">1</span>);</span><br><span class="line">              <span class="keyword">if</span>(map.get(word) == <span class="number">0</span>)&#123;</span><br><span class="line">                  map.remove(word);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span>(map.isEmpty())&#123;</span><br><span class="line">              ans.add(i);</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> i+len; k + m*len -<span class="number">1</span> &lt; n;k+=len)&#123;</span><br><span class="line">                  <span class="type">String</span> <span class="variable">start</span> <span class="operator">=</span> s.substring(k-len,k);</span><br><span class="line">                  map.put(start,map.getOrDefault(start,<span class="number">0</span>)-<span class="number">1</span>);</span><br><span class="line">                  <span class="keyword">if</span>(map.get(start) == <span class="number">0</span>)&#123;</span><br><span class="line">                      map.remove(start);</span><br><span class="line">                  &#125;</span><br><span class="line">              <span class="type">String</span> <span class="variable">end</span> <span class="operator">=</span> s.substring(k+(m-<span class="number">1</span>)*len,k+m*len);</span><br><span class="line">              map.put(end,map.getOrDefault(end,<span class="number">0</span>)+<span class="number">1</span>);</span><br><span class="line">              <span class="keyword">if</span>(map.get(end) == <span class="number">0</span>)&#123;</span><br><span class="line">                  map.remove(end);</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">if</span>(map.isEmpty())&#123;</span><br><span class="line">                  ans.add(k);</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/01/23/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98%20%E4%B8%B2%E8%81%94%E6%89%80%E6%9C%89%E5%8D%95%E8%AF%8D%E7%9A%84%E5%AD%97%E4%B8%B2/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Java锁与synchronized关键字" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Java锁与synchronized关键字"><a href="#Java锁与synchronized关键字" class="headerlink" title="Java锁与synchronized关键字"></a>Java锁与synchronized关键字</h2><p>“八锁”（Eight Locks）是指Java中通过synchronized关键字实现的八种不同的同步场景。这些场景主要是针对多线程环境下的共享资源访问，通过不同的锁机制来实现线程安全性。以下是八种典型的同步场景：</p>
+<h3 id="对象锁（Object-Lock）："><a href="#对象锁（Object-Lock）：" class="headerlink" title="对象锁（Object Lock）："></a>对象锁（Object Lock）：</h3><ul>
+<li>通过synchronized关键字修饰实例方法，锁住当前实例对象。</li>
+<li>示例：<code>synchronized void method() &#123;...&#125;</code>。</li>
+</ul>
+<h3 id="类锁（Class-Lock）："><a href="#类锁（Class-Lock）：" class="headerlink" title="类锁（Class Lock）："></a>类锁（Class Lock）：</h3><ul>
+<li>通过synchronized关键字修饰静态方法，锁住当前类的Class对象。</li>
+<li>示例：<code>synchronized static void method() &#123;...&#125;</code>。</li>
+</ul>
+<h3 id="代码块锁（Block-Lock）："><a href="#代码块锁（Block-Lock）：" class="headerlink" title="代码块锁（Block Lock）："></a>代码块锁（Block Lock）：</h3><ul>
+<li>通过synchronized关键字修饰代码块，锁住指定对象obj。</li>
+<li>示例：<code>synchronized (obj) &#123;...&#125;</code>。</li>
+</ul>
+<h3 id="字符串常量池锁（String-Constant-Pool-Lock）："><a href="#字符串常量池锁（String-Constant-Pool-Lock）：" class="headerlink" title="字符串常量池锁（String Constant Pool Lock）："></a>字符串常量池锁（String Constant Pool Lock）：</h3><ul>
+<li>通过String的intern()方法，将字符串放入常量池，实现锁定字符串。</li>
+<li>示例：<code>String s1 = &quot;hello&quot;; String s2 = new String(&quot;hello&quot;).intern(); synchronized (s1) &#123;...&#125;</code>。</li>
+</ul>
+<h3 id="多个对象锁（Multiple-Object-Locks）："><a href="#多个对象锁（Multiple-Object-Locks）：" class="headerlink" title="多个对象锁（Multiple Object Locks）："></a>多个对象锁（Multiple Object Locks）：</h3><ul>
+<li>通过在不同的对象上加锁，实现多个独立的锁。</li>
+<li>示例：<code>synchronized (obj1) &#123;...&#125; synchronized (obj2) &#123;...&#125;</code>。</li>
+</ul>
+<h3 id="同步方法调用其他同步方法（Synchronized-Method-Calling-Another-Synchronized-Method）："><a href="#同步方法调用其他同步方法（Synchronized-Method-Calling-Another-Synchronized-Method）：" class="headerlink" title="同步方法调用其他同步方法（Synchronized Method Calling Another Synchronized Method）："></a>同步方法调用其他同步方法（Synchronized Method Calling Another Synchronized Method）：</h3><ul>
+<li>在一个同步方法中调用另一个同步方法，会继续持有锁。</li>
+<li>示例：<code>synchronized void method1() &#123; method2(); &#125; synchronized void method2() &#123;...&#125;</code>。</li>
+</ul>
+<h3 id="非静态方法调用静态方法（Non-Static-Method-Calling-Static-Method）："><a href="#非静态方法调用静态方法（Non-Static-Method-Calling-Static-Method）：" class="headerlink" title="非静态方法调用静态方法（Non-Static Method Calling Static Method）："></a>非静态方法调用静态方法（Non-Static Method Calling Static Method）：</h3><ul>
+<li>在非静态方法中调用静态方法，持有的锁不同。</li>
+<li>示例：<code>synchronized void method1() &#123; method2(); &#125; synchronized static void method2() &#123;...&#125;</code>。</li>
+</ul>
+<h3 id="继承关系中的锁（Lock-in-Inheritance）："><a href="#继承关系中的锁（Lock-in-Inheritance）：" class="headerlink" title="继承关系中的锁（Lock in Inheritance）："></a>继承关系中的锁（Lock in Inheritance）：</h3><ul>
+<li>在子类中调用父类的同步方法，可能会导致锁不一致。</li>
+<li>示例：<code>class Parent &#123; synchronized void method() &#123;...&#125; &#125; class Child extends Parent &#123; void test() &#123; method(); &#125; &#125;</code>。</li>
+</ul>
+<p>在并发编程中，合理使用这些同步场景可以确保线程安全，防止数据竞争和不一致性。然而，过度使用锁可能导致性能问题，因此需要根据具体情况权衡锁的使用。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/01/16/Java%E9%94%81%E4%B8%8Esynchronized%E5%85%B3%E9%94%AE%E5%AD%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Spring常用工具" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Spring常用工具"><a href="#Spring常用工具" class="headerlink" title="Spring常用工具"></a>Spring常用工具</h2><h3 id="计时工具StopWatch"><a href="#计时工具StopWatch" class="headerlink" title="计时工具StopWatch"></a>计时工具StopWatch</h3><p>StopWatch为Spring框架自带的计算工具类，本质上使用System.currentTimeMills()进行时间计算，可以高效地对Spring代码块进行计时处理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">StopWatch</span> <span class="variable">stopWatch</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StopWatch</span>();<span class="comment">//创建stopWatch计时工具对象</span></span><br><span class="line">stopWatch.start();<span class="comment">//开始计时</span></span><br><span class="line">stopWatch.stop();<span class="comment">//停止计时</span></span><br><span class="line">stop.getLastTaskTimeMillis();<span class="comment">//获取代码块运行时间</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/01/14/Spring%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-计网复习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -170,7 +380,7 @@
 <h4 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h4><h5 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h5><p>成帧 （Framing）<br>将比特流划分成“帧”的主要目的是为了检测和纠正物理层在比特传输中可能出现的错误，数据链路层功能需借助“帧”的各个域来实现<br>差错控制 （Error Control）<br>处理传输中出现的差错，如位错误、丢失等<br>流量控制 （Flow Control）<br>确保发送方的发送速率，不大于接收方的处理速率，避免接收缓冲区溢出</p>
 <ul>
 <li>码元：一个数字脉冲就是一个码元，或者也可以说码元就是一个固定时长的波形信号，用这个波形来代表一个K进制数字。</li>
-<li>码元与比特的关系： 码元修带多少比特信息，与码元的进制有关</li>
+<li>码元与比特的关系： 码元带多少比特信息，与码元的进制有关</li>
 </ul>
 <blockquote>
 <p>例如一个4进制码元，他就有四种不同的形态，分别表示0，1，2，3；对应的二进制就是00，01，10，11；可见需要两位2进制数才能表示，因此它就携带了2比特的信息（这里有个前提条件，<strong>每个符号等概率传输</strong>）<br>同理，8进制码元，携带3比特信息<br>M进制码元，携带log2(M)比特信息</p>
@@ -783,206 +993,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/12/24/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98%20%20%E5%8A%A0%E6%B2%B9%E7%AB%99/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-面试经典150题 O(1)时间插入、删除和获取随机元素" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="面试经典150题-O-1-时间插入、删除和获取随机元素"><a href="#面试经典150题-O-1-时间插入、删除和获取随机元素" class="headerlink" title="面试经典150题 O(1)时间插入、删除和获取随机元素"></a>面试经典150题 O(1)时间插入、删除和获取随机元素</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>实现<code>RandomizedSet</code> 类：</p>
-<ul>
-<li><code>RandomizedSet()</code> 初始化 <code>RandomizedSet</code> 对象</li>
-<li><code>bool insert(int val)</code> 当元素 <code>val</code> 不存在时，向集合中插入该项，并返回 <code>true</code> ；否则，返回 <code>false</code> 。</li>
-<li><code>bool remove(int val)</code> 当元素 <code>val</code> 存在时，从集合中移除该项，并返回 <code>true</code> ；否则，返回 <code>false</code> 。</li>
-<li><code>int getRandom()</code> 随机返回现有集合中的一项（测试用例保证调用此方法时集合中至少存在一个元素）。每个元素应该有 <strong>相同的概率</strong> 被返回。</li>
-</ul>
-<p>你必须实现类的所有函数，并满足每个函数的 <strong>平均</strong> 时间复杂度为 <code>O(1)</code> 。</p>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul>
-<li>提到O(1)时间插入、删除元素就必定会使用到哈希表，但是哈希表虽然有随机性，但是它的随机是伪随机，即这个哈希表一旦创建里面的元素的位置就固定了，它并不能满足真正意义上获取随机元素，所以为了在O(1)时间获取到随机元素，我们还需要使用变长数组配合Random类生成的索引来实现。</li>
-<li>所以这道题的解决需要使用到哈希表+变长数组</li>
-<li>插入元素时先判断哈希表中是否存在该元素，若存在则直接返回false，不存在则把该元素插入数组末端并以它的值为key，索引为value放入哈希表中</li>
-<li>删除元素也是同理先判断哈希表中是否存在该元素，若不存在则直接返回false，存在则把它与变长数组最后一个元素调换位置，把新位置的值与它的新索引加入哈希表中，然后再把旧值从哈希表中去除同时把变长数组最后一个元素去掉</li>
-<li>返回随机元素通过Random类获取随机索引返回即可</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">RandomizedSet</span> &#123;</span><br><span class="line"></span><br><span class="line">    Map&lt;Integer,Integer&gt; map;</span><br><span class="line">    List&lt;Integer&gt; list;</span><br><span class="line">    Random random;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">RandomizedSet</span><span class="params">()</span> &#123;</span><br><span class="line">        map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">        list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">        random = <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">insert</span><span class="params">(<span class="type">int</span> val)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(val))&#123;</span><br><span class="line">            <span class="comment">//已经存在</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> list.size();</span><br><span class="line">        list.add(val);</span><br><span class="line">        map.put(val,size);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">remove</span><span class="params">(<span class="type">int</span> val)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(!map.containsKey(val))&#123;</span><br><span class="line">            <span class="comment">//不存在</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pos</span> <span class="operator">=</span> map.get(val);</span><br><span class="line">        <span class="type">int</span> <span class="variable">size</span> <span class="operator">=</span> list.size()-<span class="number">1</span>;</span><br><span class="line">        list.set(pos,list.get(size));</span><br><span class="line">        map.put(list.get(size),pos);</span><br><span class="line">        map.remove(val);</span><br><span class="line">        list.remove(size);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getRandom</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> list.get(random.nextInt(list.size()));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/12/23/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98%20O(1)%E6%97%B6%E9%97%B4%E6%8F%92%E5%85%A5%E3%80%81%E5%88%A0%E9%99%A4%E5%92%8C%E8%8E%B7%E5%8F%96%E9%9A%8F%E6%9C%BA%E5%85%83%E7%B4%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-面试经典150题 H指数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="面试经典150题-H指数"><a href="#面试经典150题-H指数" class="headerlink" title="面试经典150题 H指数"></a>面试经典150题 H指数</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>给你一个整数数组 <code>citations</code> ，其中 <code>citations[i]</code> 表示研究者的第 <code>i</code> 篇论文被引用的次数。计算并返回该研究者的 <strong><code>h</code> 指数</strong>。</p>
-<p>根据维基百科上 <a target="_blank" rel="noopener" href="https://baike.baidu.com/item/h-index/3991452?fr=aladdin">h 指数的定义</a>：<code>h</code> 代表“高引用次数” ，一名科研人员的 <code>h</code> <strong>指数</strong> 是指他（她）至少发表了 <code>h</code> 篇论文，并且 <strong>至少</strong> 有 <code>h</code> 篇论文被引用次数大于等于 <code>h</code> 。如果 <code>h</code> 有多种可能的值，**<code>h</code> 指数** 是其中最大的那个。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：citations = [3,0,6,1,5]</span><br><span class="line">输出：3 </span><br><span class="line">解释：给定数组表示研究者总共有 5 篇论文，每篇论文相应的被引用了 3, 0, 6, 1, 5 次。</span><br><span class="line">     由于研究者有 3 篇论文每篇 至少 被引用了 3 次，其余两篇论文每篇被引用 不多于 3 次，所以她的 h 指数是 3。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：citations = [1,3,1]</span><br><span class="line">输出：1</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>n == citations.length</code></li>
-<li><code>1 &lt;= n &lt;= 5000</code></li>
-<li><code>0 &lt;= citations[i] &lt;= 1000</code></li>
-</ul>
-<hr>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>首先知道应该如何去得到正确的答案，通过给定的输入数值与输出数值可以总结出方法：</p>
-<ul>
-<li><p>对输入数组进行升序排序，我们可以轻松地发现对于数值中特定的某个数，若这个数的数值小于数值中比该数大的数的个数（即该数在数值中的位置到数值尾部的距离），这个数都可以作为h指数，那如何得到最大的h指数呢？—–&gt;直接顺序遍历数值，找到第一个不满足上述条件的值（边界值），它前面那个可能就是答案的H指数。</p>
-</li>
-<li><p>这一定是正确的情况吗？—-&gt;显而易见的是这肯定是不正确的，根据题意h指数不一定就在给定的citation输入数组中。 那什么情况下，h指数可以不在输入数值中呢，那一定是发生在边界值之后的情况，对于边界值：它的位置到数组底部的距离虽然比它本身小，但是它的位置到数组底部的距离也是可以满足h指数的要求的，而当这个值比数值中小于边界值的第一个数大，它也可以作为答案。</p>
-</li>
-<li><p>记得排除</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：citations = [0,0]</span><br><span class="line">输出：0</span><br></pre></td></tr></table></figure>
-
-<p> 这种情况，需要一个flag标志位</p>
-</li>
-</ul>
-<hr>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">hIndex</span><span class="params">(<span class="type">int</span>[] citations)</span> &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">len</span> <span class="operator">=</span> citations.length;</span><br><span class="line">            <span class="type">int</span> <span class="variable">ans</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="type">int</span> <span class="variable">index</span> <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line">            <span class="type">boolean</span> <span class="variable">flag</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">if</span>(len==<span class="number">1</span> &amp;&amp; citations[<span class="number">0</span>] == <span class="number">0</span>)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(len == <span class="number">1</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">            Arrays.sort(citations);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(citations[i]&gt;len-i)&#123;</span><br><span class="line">                    flag = <span class="literal">true</span>;</span><br><span class="line">                    index = i;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                ans = citations[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> flag == <span class="literal">true</span> ? Integer.max(ans,len-index) : ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/12/22/%E9%9D%A2%E8%AF%95%E7%BB%8F%E5%85%B8150%E9%A2%98%20H%E6%8C%87%E6%95%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-添加视力结果接口地址：" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>添加视力结果接口地址：</p>
-<p><a target="_blank" rel="noopener" href="http://43.138.245.107:18080/admin/sightResult/add">http://43.138.245.107:18080/admin/sightResult/add</a></p>
-<p>(暂定，还没有把后端服务部署到服务器上)</p>
-<p>请求方法：HTTP  POST请求</p>
-<p>请求参数：</p>
-<p>一个JSON对象</p>
-<p>{<br>  “deviceId”: 16,<br>  “result”: 5.1,<br>  “studentId”: 5,<br>}</p>
-<p>deviceId：必须，设备编号，与某个esp32设备绑定</p>
-<p>result：必须，该次视力测试结果</p>
-<p>studentId：必须，学生编号，用户人脸识别登录后由服务器返回给esp32</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/12/16/%E6%B7%BB%E5%8A%A0%E8%A7%86%E5%8A%9B%E7%BB%93%E6%9E%9C%E6%8E%A5%E5%8F%A3%E5%9C%B0%E5%9D%80%EF%BC%9A/">展开全文 >></a>
         </p>
       
 
